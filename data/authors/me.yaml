@@ -13,75 +13,75 @@ status:
   icon: ""
 role: 高级技术专家；正高级工程师
 bio: |
-  面向能源行业智能巡检与无人化运维，开展机器人、人工智能和工业信息技术研究。
+  王战，博士，正高级工程师，现任浙江浙能数字科技有限公司高级技术专家、浙江省浙能工业信息工程省级重点企业研究院副院长。长期从事机器人与人工智能、新一代信息技术领域的研究与工程应用，重点面向能源行业智能巡检、无人化运维和安全生产需求，开展智能机器人、工业视觉感知、多传感融合定位与导航、工业人工智能、数字孪生和能源物联网等技术研发。
 
+  曾主持或负责国家级、省部级及企业科研项目，相关成果已在火电、海上风电、煤场、化工和钢铁等工业场景中开展应用。具有科研团队建设、项目管理、关键技术攻关、标准制定和科技成果转化经验。
 affiliations:
   - name: 浙江浙能数字科技有限公司
     url: ''
-
 links:
   - icon: envelope
     icon_pack: fas
     name: Email
+    label: Email
     url: 'mailto:zhanwang@zjenergy.com.cn'
   - icon: github
     icon_pack: fab
     name: GitHub
+    label: GitHub
     url: 'https://github.com/wangzhan0415'
   - icon: researchgate
     icon_pack: fab
     name: ResearchGate
+    label: ResearchGate
     url: 'https://www.researchgate.net/profile/Zhan-Wang-39'
-
 interests:
-  - 机器人与人工智能技术
-  - 工业智能与能源物联
-  - 新一代信息技术
-
+  - 智能机器人与自主系统
+  - 工业智能感知与计算机视觉
+  - 工业人工智能与数字孪生
+  - 能源物联网与智能信息技术
 education:
-  - area: 机器人学
+  - degree: 研究生 / 博士 · 机器人学
     institution: 巴黎萨克雷大学
-    date_start: 2015-09-01
-    date_end: 2018-10-18
-    summary: 研究生 / 博士
-  - area: 光电工程
+    start: 2015-09-01
+    end: 2018-10-18
+    summary: ''
+  - degree: 研究生 / 硕士 · 光电工程
     institution: 中国科学院大学
-    date_start: 2012-09-01
-    date_end: 2015-01-30
-    summary: 研究生 / 硕士
-  - area: 光信息科学与技术
+    start: 2012-09-01
+    end: 2015-01-30
+    summary: ''
+  - degree: 本科 / 学士 · 光信息科学与技术
     institution: 武汉理工大学
-    date_start: 2008-09-01
-    date_end: 2012-08-07
-    summary: 本科 / 学士
-
+    start: 2008-09-01
+    end: 2012-08-07
+    summary: ''
 experience:
-  - position: 高级技术专家
-    company_name: 浙江浙能数字科技有限公司
-    date_start: 2025-11-01
-    date_end: ''
+  - role: 高级技术专家
+    org: 浙江浙能数字科技有限公司
+    start: 2025-11-01
+    end: ''
     summary: 新一代信息技术技术开发
-  - position: 副院长
-    company_name: 浙江省浙能工业信息工程省级重点企业研究院
-    date_start: 2025-08-01
-    date_end: ''
+  - role: 副院长
+    org: 浙江省浙能工业信息工程省级重点企业研究院
+    start: 2025-08-01
+    end: ''
     summary: 负责工业信息化与能源数智化方向科研规划、项目管理、技术攻关及成果转化推进。
-  - position: 总监、团队负责人
-    company_name: 浙江浙能数字科技有限公司
-    date_start: 2022-01-01
-    date_end: 2025-10-31
+  - role: 总监、团队负责人
+    org: 浙江浙能数字科技有限公司
+    start: 2022-01-01
+    end: 2025-10-31
     summary: 新一代信息技术技术开发及团队工作
-  - position: 科研团队负责人
-    company_name: 浙江浙能技术研究院有限公司
-    date_start: 2020-05-13
-    date_end: 2021-12-31
+  - role: 科研团队负责人
+    org: 浙江浙能技术研究院有限公司
+    start: 2020-05-13
+    end: 2021-12-31
     summary: 新一代信息技术技术开发及科研团队工作
-  - position: 博士后研究员
-    company_name: 巴黎高等电子学院
-    date_start: 2018-12-09
-    date_end: 2020-03-09
+  - role: 博士后研究员
+    org: 巴黎高等电子学院
+    start: 2018-12-09
+    end: 2020-03-09
     summary: 新一代信息技术技术开发
-
 skills: []
 languages: []
 awards: []

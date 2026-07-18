@@ -8,15 +8,15 @@ main:
   - name: 研究方向
     url: /research/
     weight: 30
-  - name: 科研项目
-    url: /projects/
-    weight: 40
   - name: 论文成果
     url: /publications/
+    weight: 40
+  - name: 科研项目
+    url: /projects/
     weight: 50
+  - name: 完整履历
+    url: /experience/
+    weight: 60
   - name: 奖项荣誉
     url: /awards/
-    weight: 60
-  - name: 联系方式
-    url: /#contact
     weight: 70
