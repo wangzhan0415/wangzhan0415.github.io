@@ -18,6 +18,7 @@ sections:
               <span>高级技术专家</span>
               <span>正高级工程师</span>
               <span>浙江浙能数字科技有限公司</span>
+              <span>浙江省浙能工业信息工程省级重点企业研究院副院长</span>
             </div>
             <p class="zw-hero__lead">面向能源行业智能巡检与无人化运维，开展机器人、人工智能和工业信息技术研究。</p>
             <p class="zw-hero__lead zw-hero__lead--en">Research on robotics, artificial intelligence, and industrial information technologies for intelligent inspection and unmanned operation and maintenance in the energy sector.</p>
@@ -25,21 +26,22 @@ sections:
               <span>Robotics</span>
               <span>Industrial AI</span>
               <span>Intelligent Perception</span>
-              <span>Energy Digitalization</span>
+              <span>Digital Twins</span>
+              <span>Energy IoT</span>
             </div>
             <div class="zw-actions">
-              <a class="zw-button zw-button--primary" href="mailto:zhanwang@zjenergy.com.cn">Email</a>
-              <a class="zw-button zw-button--secondary" href="/research/">View Research</a>
-              <a class="zw-button zw-button--ghost" href="/about/">About Me</a>
+              <a class="zw-button zw-button--primary" href="/research/">View Research / 研究方向</a>
+              <a class="zw-button zw-button--secondary" href="/about/">About Me / 个人简介</a>
+              <a class="zw-button zw-button--ghost" href="mailto:zhanwang@zjenergy.com.cn">Email</a>
             </div>
           </div>
           <div class="zw-hero__visual">
             <div class="zw-portrait-orbit">
-              <span class="zw-orbit zw-orbit--outer"></span>
-              <span class="zw-orbit zw-orbit--middle"></span>
-              <span class="zw-orbit-node zw-orbit-node--one"></span>
-              <span class="zw-orbit-node zw-orbit-node--two"></span>
-              <span class="zw-orbit-node zw-orbit-node--three"></span>
+              <span class="zw-orbit zw-orbit--outer" aria-hidden="true"></span>
+              <span class="zw-orbit zw-orbit--middle" aria-hidden="true"></span>
+              <span class="zw-orbit-node zw-orbit-node--one" aria-hidden="true"></span>
+              <span class="zw-orbit-node zw-orbit-node--two" aria-hidden="true"></span>
+              <span class="zw-orbit-node zw-orbit-node--three" aria-hidden="true"></span>
               <img src="/media/authors/me.png" alt="王战 / Zhan Wang" loading="eager">
             </div>
           </div>
@@ -52,7 +54,7 @@ sections:
       title: ""
       text: |
         <nav class="zw-positioning" aria-label="研究定位">
-          <span>智能机器人</span><i aria-hidden="true"></i><span>工业视觉感知</span><i aria-hidden="true"></i><span>工业人工智能</span><i aria-hidden="true"></i><span>数字孪生</span><i aria-hidden="true"></i><span>能源物联网</span><i aria-hidden="true"></i><span>智能运维</span>
+          <span><strong>智能机器人</strong><em>Intelligent Robotics</em></span><i aria-hidden="true"></i><span><strong>工业智能感知</strong><em>Industrial Perception</em></span><i aria-hidden="true"></i><span><strong>工业人工智能</strong><em>Industrial AI</em></span><i aria-hidden="true"></i><span><strong>数字孪生</strong><em>Digital Twins</em></span><i aria-hidden="true"></i><span><strong>能源物联网</strong><em>Energy IoT</em></span><i aria-hidden="true"></i><span><strong>智能运维</strong><em>Intelligent O&amp;M</em></span>
         </nav>
     design:
       columns: "1"
@@ -65,7 +67,8 @@ sections:
           <div class="zw-section-kicker">01 / About</div>
           <div class="zw-about__body">
             <h2 id="zw-about-title">个人简介</h2>
-            <p>王战，博士，正高级工程师，现任浙江浙能数字科技有限公司高级技术专家、浙江省浙能工业信息工程省级重点企业研究院副院长。长期从事机器人与人工智能、新一代信息技术领域的研究与工程应用，重点面向能源行业智能巡检、无人化运维和安全生产需求，开展相关技术研发。</p>
+            <p>王战，博士，正高级工程师，现任浙江浙能数字科技有限公司高级技术专家、浙江省浙能工业信息工程省级重点企业研究院副院长。长期从事机器人与人工智能、新一代信息技术领域的研究与工程应用，重点面向能源行业智能巡检、无人化运维和安全生产需求，开展智能机器人、工业视觉感知、多传感融合定位与导航、工业人工智能、数字孪生和能源物联网等技术研发。</p>
+            <p>曾主持或负责国家级、省部级及企业科研项目，相关成果已在火电、海上风电、煤场、化工和钢铁等工业场景中开展应用。具有科研团队建设、项目管理、关键技术攻关、标准制定和科技成果转化经验。</p>
             <div class="zw-capabilities" aria-label="Capabilities">
               <span><strong>科研与技术攻关</strong><em>Research and Technology Development</em></span>
               <span><strong>工程应用与系统集成</strong><em>Engineering Application and System Integration</em></span>
@@ -105,6 +108,17 @@ sections:
             <section><h3>Education</h3><ol class="zw-timeline"><li><time>2015-09-01 至 2018-10-18</time><strong>巴黎萨克雷大学</strong><span>研究生 / 博士 · 机器人学</span></li><li><time>2012-09-01 至 2015-01-30</time><strong>中国科学院大学</strong><span>研究生 / 硕士 · 光电工程</span></li><li><time>2008-09-01 至 2012-08-07</time><strong>武汉理工大学</strong><span>本科 / 学士 · 光信息科学与技术</span></li></ol></section>
             <section><h3>Experience</h3><ol class="zw-timeline"><li class="zw-current"><time>2025-11-01 至今</time><strong>浙江浙能数字科技有限公司</strong><span>高级技术专家 · 新一代信息技术技术开发</span><em>CURRENT</em></li><li class="zw-current"><time>2025-08 至今</time><strong>浙江省浙能工业信息工程省级重点企业研究院</strong><span>副院长</span><em>CURRENT</em></li><li><time>2022-01-01 至 2025-10-31</time><strong>浙江浙能数字科技有限公司</strong><span>总监、团队负责人</span></li><li><time>2020-05-13 至 2021-12-31</time><strong>浙江浙能技术研究院有限公司</strong><span>科研团队负责人</span></li><li><time>2018-12-09 至 2020-03-09</time><strong>巴黎高等电子学院</strong><span>博士后研究员</span></li></ol></section>
           </div>
+        </section>
+    design:
+      columns: "1"
+
+  - block: markdown
+    id: selected-highlights
+    content:
+      title: ""
+      text: |
+        <section class="zw-selected-placeholder" hidden aria-hidden="true">
+          <h2>Selected Highlights</h2>
         </section>
     design:
       columns: "1"

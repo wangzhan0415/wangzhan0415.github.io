@@ -8,9 +8,10 @@ sections:
     content:
       title: '论文成果 | Publications'
       text: |
-        内容正在整理中。
-
-        Content is being updated.
+        <div class="zw-empty-state">
+          <p>内容正在整理中。</p>
+          <p lang="en">Content is being updated.</p>
+        </div>
     design:
       columns: '1'
 ---
