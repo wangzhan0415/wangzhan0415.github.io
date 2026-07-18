@@ -13,7 +13,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   identity:
     # Site name - shown in navbar, footer, copyright, and browser title by default
-    name: "Zhan Wang"
+    name: "王战 | 学术主页"
     # Legal entity for copyright notices (defaults to name if not set)
     organization: ""
     # Schema.org type for structured data
@@ -21,7 +21,7 @@ hugoblox:
     # Short tagline displayed on your site
     tagline: ""
     # Site meta description for search engines and social sharing
-    description: "Zhan Wang academic website. Content is being updated."
+    description: "王战学术主页。面向能源行业智能巡检与无人化运维，开展机器人、人工智能和工业信息技术研究。"
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: "" # Twitter/X handle for Twitter Cards (without @)
@@ -127,7 +127,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   seo:
     # Browser tab title override (defaults to identity.name if not set)
-    title: "Zhan Wang | Academic Website"
+    title: "王战 | 学术主页"
     # For local_business identity type only
     location:
       address:
@@ -146,7 +146,7 @@ hugoblox:
         - /
       disallow: []
       note: "Guidance for AI crawlers - customize to match your public content."
-      contact: ""
+      contact: "zhanwang@zjenergy.com.cn"
 
   # ────────────────────────────────────────────────────────────────────────────
   # CONTENT

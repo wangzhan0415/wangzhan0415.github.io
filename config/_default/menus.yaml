@@ -1,24 +1,22 @@
-# Navigation Links
-
 main:
-  - name: Home
+  - name: 首页
     url: /
     weight: 10
-  - name: About
-    url: /#about
+  - name: 个人简介
+    url: /about/
     weight: 20
-  - name: Research
-    url: /#research
+  - name: 研究方向
+    url: /research/
     weight: 30
-  - name: Projects
+  - name: 科研项目
     url: /projects/
     weight: 40
-  - name: Publications
+  - name: 论文成果
     url: /publications/
     weight: 50
-  - name: Awards
-    url: /#awards
+  - name: 奖项荣誉
+    url: /awards/
     weight: 60
-  - name: Contact
+  - name: 联系方式
     url: /#contact
     weight: 70
