@@ -1,6 +1,7 @@
 ---
 title: Callouts
 linkTitle: Callouts
+draft: true
 ---
 
 Hugo Blox supports GitHub and Obsidian-style Markdown callouts for maximum compatibility and content portability.

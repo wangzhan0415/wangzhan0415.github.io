@@ -1,13 +1,13 @@
 ---
-title: Recent & Upcoming Talks
-cms_exclude: true
-#url: talk
+title: Talks
+date: 2023-10-24
+type: landing
 
-# View
-view: card
-
-# Optional cover image (relative to `assets/media/` folder).
-image:
-  caption: ''
-  filename: ''
+sections:
+  - block: markdown
+    content:
+      title: 'Talks'
+      text: 'Content is being updated.'
+    design:
+      columns: '1'
 ---

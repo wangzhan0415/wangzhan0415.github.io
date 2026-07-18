@@ -40,6 +40,7 @@ slides:
     footer:
       text: "© 2026 HugoBlox"       # Supports Markdown (e.g., links)
       position: "bottom-center"     # Options: top-left, top-right, bottom-left, bottom-right, bottom-center
+draft: true
 ---
 
 

@@ -1,12 +1,13 @@
 ---
 title: Publications
-cms_exclude: true
+date: 2023-10-24
+type: landing
 
-# View.
-view: citation
-
-# Optional header image (relative to `static/media/` folder).
-banner:
-  caption: ''
-  image: ''
+sections:
+  - block: markdown
+    content:
+      title: 'Publications'
+      text: 'Content is being updated.'
+    design:
+      columns: '1'
 ---
