@@ -22,21 +22,17 @@ He has led or taken responsibility for national, provincial, ministerial, and en
 
 ## 教育经历 / Education
 
-<ol class="zw-timeline">
-<li><time>2015-09-01 至 2018-10-18</time><strong>巴黎萨克雷大学</strong><span>研究生 / 博士 · 机器人学</span><span lang="en">Graduate / Ph.D. · Robotics · Official English name to be confirmed</span></li>
-<li><time>2012-09-01 至 2015-01-30</time><strong>中国科学院大学</strong><span>研究生 / 硕士 · 光电工程</span><span lang="en">Graduate / Master · Optoelectronic Engineering · Official English name to be confirmed</span></li>
-<li><time>2008-09-01 至 2012-08-07</time><strong>武汉理工大学</strong><span>本科 / 学士 · 光信息科学与技术</span><span lang="en">Undergraduate / Bachelor · Optical Information Science and Technology · Official English name to be confirmed</span></li>
-</ol>
+- **2015-09-01 至 2018-10-18**：巴黎萨克雷大学，研究生 / 博士 · 机器人学。
+- **2012-09-01 至 2015-01-30**：中国科学院大学，研究生 / 硕士 · 光电工程。
+- **2008-09-01 至 2012-08-07**：武汉理工大学，本科 / 学士 · 光信息科学与技术。
 
 ## 工作经历 / Experience
 
-<ol class="zw-timeline">
-<li><time>2025-11-01 至今 / Present</time><strong>浙江浙能数字科技有限公司</strong><span>高级技术专家 · 新一代信息技术技术开发</span><span lang="en">Senior Technical Expert · Next-generation information technology development · Official English name to be confirmed</span></li>
-<li><time>2025-08 至今 / Present</time><strong>浙江省浙能工业信息工程省级重点企业研究院</strong><span>副院长 · 负责工业信息化与能源数智化方向科研规划、项目管理、技术攻关及成果转化推进。</span><span lang="en">Deputy Director · Research planning, project management, technical problem solving, and technology transfer promotion for industrial informatization and energy digital-intelligent transformation · Official English name to be confirmed</span></li>
-<li><time>2022-01-01 至 2025-10-31</time><strong>浙江浙能数字科技有限公司</strong><span>总监、团队负责人 · 新一代信息技术技术开发及团队工作</span><span lang="en">Director and Team Leader · Next-generation information technology development and team work · Official English name to be confirmed</span></li>
-<li><time>2020-05-13 至 2021-12-31</time><strong>浙江浙能技术研究院有限公司</strong><span>科研团队负责人 · 新一代信息技术技术开发及科研团队工作</span><span lang="en">Research Team Leader · Next-generation information technology development and research team work · Official English name to be confirmed</span></li>
-<li><time>2018-12-09 至 2020-03-09</time><strong>巴黎高等电子学院</strong><span>博士后研究员 · 新一代信息技术技术开发</span><span lang="en">Postdoctoral Researcher · Next-generation information technology development · Official English name to be confirmed</span></li>
-</ol>
+- **2025-11-01 至今 / Present**：浙江浙能数字科技有限公司，高级技术专家 · 新一代信息技术技术开发。
+- **2025-08 至今 / Present**：浙江省浙能工业信息工程省级重点企业研究院，副院长 · 负责工业信息化与能源数智化方向科研规划、项目管理、技术攻关及成果转化推进。
+- **2022-01-01 至 2025-10-31**：浙江浙能数字科技有限公司，总监、团队负责人 · 新一代信息技术技术开发及团队工作。
+- **2020-05-13 至 2021-12-31**：浙江浙能技术研究院有限公司，科研团队负责人 · 新一代信息技术技术开发及科研团队工作。
+- **2018-12-09 至 2020-03-09**：巴黎高等电子学院，博士后研究员 · 新一代信息技术技术开发。
 
 ## Contact
 

@@ -3,14 +3,11 @@ title: 'Experience'
 date: 2023-10-24
 type: landing
 
-design:
-  spacing: '5rem'
-
 sections:
-  - block: markdown
+  - block: resume-experience
     content:
-      title: 'Experience'
-      text: 'Content is being updated.'
+      username: me
     design:
-      columns: '1'
+      date_format: 'January 2006'
+      is_education_first: true
 ---
