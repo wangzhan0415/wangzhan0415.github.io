@@ -1,6 +1,7 @@
 ---
 title: Steps
 linkTitle: Steps
+draft: true
 ---
 
 Display a series of steps, such as for a tutorial.

@@ -52,6 +52,7 @@ links:
 slides: "example"
 
 projects: []
+draft: true
 ---
 
 ## 🎯 Why Markdown Slides?

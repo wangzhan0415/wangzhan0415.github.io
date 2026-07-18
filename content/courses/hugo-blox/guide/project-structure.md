@@ -1,6 +1,7 @@
 ---
 title: Project Structure
 weight: 1
+draft: true
 ---
 
 ## Folder Structure

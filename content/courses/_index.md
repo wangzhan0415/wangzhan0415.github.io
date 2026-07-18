@@ -1,28 +1,13 @@
 ---
 title: Courses
-summary: My courses
+date: 2023-10-24
 type: landing
 
-cascade:
-  - target:
-      path: '{/courses/*/**}'
-    type: docs
-    params:
-      show_breadcrumb: true
-
 sections:
-  - block: collection
-    id: courses
+  - block: markdown
     content:
-      title: Courses
-      filters:
-        tag: Course
-        kinds:
-          - section
+      title: 'Courses'
+      text: 'Content is being updated.'
     design:
-      view: article-grid
-      show_read_time: false
-      show_date: false
-      show_read_more: false
-      columns: 1
+      columns: '1'
 ---
