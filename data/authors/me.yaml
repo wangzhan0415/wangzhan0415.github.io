@@ -11,7 +11,7 @@ name:
 postnominals: []
 status:
   icon: ""
-role: 高级技术专家；正高级工程师
+role: 博士；高级技术专家；正高级工程师
 bio: |
   王战，博士，正高级工程师，现任浙江浙能数字科技有限公司高级技术专家、浙江省浙能工业信息工程省级重点企业研究院副院长。长期从事机器人与人工智能、新一代信息技术领域的研究与工程应用，重点面向能源行业智能巡检、无人化运维和安全生产需求，开展智能机器人、工业视觉感知、多传感融合定位与导航、工业人工智能、数字孪生和能源物联网等技术研发。
 
@@ -25,13 +25,11 @@ links:
     name: Email
     label: Email
     url: 'mailto:zhanwang@zjenergy.com.cn'
-  - icon: github
-    icon_pack: fab
+  - icon: brands/github
     name: GitHub
     label: GitHub
     url: 'https://github.com/wangzhan0415'
-  - icon: researchgate
-    icon_pack: fab
+  - icon: brands/researchgate
     name: ResearchGate
     label: ResearchGate
     url: 'https://www.researchgate.net/profile/Zhan-Wang-39'
