@@ -2,7 +2,7 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: 王战 / Zhan Wang
+  display: Dr. Zhan Wang
   given: Zhan
   family: Wang
   alternate: '王战'
@@ -11,11 +11,11 @@ name:
 postnominals: []
 status:
   icon: ""
-role: 博士；高级技术专家；正高级工程师
+role: 高级技术专家｜正高级工程师
 bio: |
-  王战，博士，正高级工程师，现任浙江浙能数字科技有限公司高级技术专家、浙江省浙能工业信息工程省级重点企业研究院副院长。长期从事机器人与人工智能、新一代信息技术领域的研究与工程应用，重点面向能源行业智能巡检、无人化运维和安全生产需求，开展智能机器人、工业视觉感知、多传感融合定位与导航、工业人工智能、数字孪生和能源物联网等技术研发。
+  王战，博士，正高级工程师，现任浙江浙能数字科技有限公司高级技术专家、省重点企业研究院副院长。长期从事智能机器人与自主系统、工业人工智能、能源物联网等领域的技术研究与创新应用。
 
-  曾主持或负责国家级、省部级及企业科研项目，相关成果已在火电、海上风电、煤场、化工和钢铁等工业场景中开展应用。具有科研团队建设、项目管理、关键技术攻关、标准制定和科技成果转化经验。
+  曾主持或负责国家级、省部级及企业科研项目20余项，相关成果已在火电、新能源、化工和钢铁等工业场景中开展应用。具有科研团队建设、项目管理、关键技术攻关、标准制定和科技成果转化经验。
 affiliations:
   - name: 浙江浙能数字科技有限公司
     url: ''
@@ -33,10 +33,13 @@ links:
     name: ResearchGate
     label: ResearchGate
     url: 'https://www.researchgate.net/profile/Zhan-Wang-39'
+  - icon: brands/orcid
+    name: ORCID
+    label: ORCID
+    url: 'https://orcid.org/0000-0002-4399-4629'
 interests:
   - 智能机器人与自主系统
-  - 工业智能感知与计算机视觉
-  - 工业人工智能与数字孪生
+  - 工业智能与计算机视觉
   - 能源物联网与智能信息技术
 education:
   - degree: 研究生 / 博士 · 机器人学
