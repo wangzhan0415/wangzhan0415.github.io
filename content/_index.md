@@ -64,4 +64,53 @@ sections:
         </div>
     design:
       columns: '1'
+
+  - block: markdown
+    content:
+      title: '近期论文成果'
+      subtitle: 'Recent Publications'
+      text: |
+        <div class="zw-recent-publications">
+          <h3 class="zw-pub-year">2026</h3>
+        <article class="zw-pub-item zw-pub-featured" data-stable-id="J2026-01">
+          <h4><a href="/publication/j2026-01/">Hybrid neural network for personnel recognition and tracking in remote bidding evaluation monitoring</a></h4>
+          <p class="zw-pub-authors">Zhihao Zhou; <strong>Zhan Wang</strong>; Yuwei Meng; et al.; Wei Wang</p>
+          <p class="zw-pub-venue"><em>Scientific Reports</em></p>
+          <div class="zw-pub-meta"><span>Apr 2026</span><span>Journal Article</span><a class="zw-doi" href="https://doi.org/10.1038/s41598-026-42936-8" target="_blank" rel="noopener noreferrer" aria-label="DOI link for Hybrid neural network for personnel recognition and tracking in remote bidding evaluation monitoring">DOI</a></div>
+        </article>
+        <article class="zw-pub-item zw-pub-featured" data-stable-id="C2026-01">
+          <h4><a href="/publication/c2026-01/">An Intelligent Inspection Robot System for Offshore Wind Power Platforms</a></h4>
+          <p class="zw-pub-authors">Bin Zhou; Wei Lin; Jiangbin Ye; et al.; <strong>Zhan Wang</strong></p>
+          <p class="zw-pub-venue"><em>2026 3rd International Conference on Power System Engineering and Smart Grid (PSESG 2026)</em></p>
+          <div class="zw-pub-meta"><span>Apr 2026</span><span>Conference Paper</span><a class="zw-doi" href="https://doi.org/10.1109/PSESG69490.2026.11544780" target="_blank" rel="noopener noreferrer" aria-label="DOI link for An Intelligent Inspection Robot System for Offshore Wind Power Platforms">DOI</a></div>
+        </article>
+        <h3 class="zw-pub-year">2025</h3>
+        <article class="zw-pub-item zw-pub-featured" data-stable-id="J2025-01">
+          <h4><a href="/publication/j2025-01/">面向巡检应用的 ＲGBD 相机主动视角矫正方法</a></h4>
+          <p class="zw-pub-authors">韩昊一，孟瑜炜，贾晓燕，鲁鼎，<strong>王战</strong>，徐辰楠，俞荣栋</p>
+          <p class="zw-pub-venue"><em>机床与液压</em></p>
+          <div class="zw-pub-meta"><span>Dec 2025</span><span>Journal Article</span><a class="zw-doi" href="https://doi.org/10.3969/j.issn.1001-3881.2025.24.031" target="_blank" rel="noopener noreferrer" aria-label="DOI link for 面向巡检应用的 ＲGBD 相机主动视角矫正方法">DOI</a></div>
+        </article>
+        <article class="zw-pub-item zw-pub-featured" data-stable-id="C2025-01">
+          <h4><a href="/publication/c2025-01/">SSOD-YOLO: A Generalized Semi-supervised Object Detection Framework for YOLO Networks</a></h4>
+          <p class="zw-pub-authors">Chennan Xu; Xubing Lei; Xingwei He; et al.; <strong>Zhan Wang</strong></p>
+          <p class="zw-pub-venue"><em>2025 4th International Conference on Image Processing, Computer Vision and Machine Learning (ICICML 2025)</em></p>
+          <div class="zw-pub-meta"><span>Nov 2025</span><span>Conference Paper</span><a class="zw-doi" href="https://doi.org/10.1109/ICICML67980.2025.11333492" target="_blank" rel="noopener noreferrer" aria-label="DOI link for SSOD-YOLO: A Generalized Semi-supervised Object Detection Framework for YOLO Networks">DOI</a></div>
+        </article>
+        <article class="zw-pub-item zw-pub-featured" data-stable-id="C2025-02">
+          <h4><a href="/publication/c2025-02/">A Bi-ACGAN Based Fiber Optic Vibration Sensing System for Idler Fault Inspection</a></h4>
+          <p class="zw-pub-authors">Xuedi Shao; Jianzhe Xu; Gang Hu; et al.; <strong>Zhan Wang</strong></p>
+          <p class="zw-pub-venue"><em>2025 12th International Forum on Electrical Engineering and Automation (IFEEA)</em></p>
+          <div class="zw-pub-meta"><span>Nov 2025</span><span>Conference Paper</span><a class="zw-doi" href="https://doi.org/10.1109/IFEEA66847.2025.11388411" target="_blank" rel="noopener noreferrer" aria-label="DOI link for A Bi-ACGAN Based Fiber Optic Vibration Sensing System for Idler Fault Inspection">DOI</a></div>
+        </article>
+        <article class="zw-pub-item zw-pub-featured" data-stable-id="J2025-02">
+          <h4><a href="/publication/j2025-02/">A lightweight and robust detection network for diverse glass surface defects via scale- and shape-aware feature extraction</a></h4>
+          <p class="zw-pub-authors">Huan Yu; Jin Wang; Jingru Yang; et al.; Guodong Lu</p>
+          <p class="zw-pub-venue"><em>Engineering Applications of Artificial Intelligence</em></p>
+          <div class="zw-pub-meta"><span>Aug 2025</span><span>Journal Article</span><a class="zw-doi" href="https://doi.org/10.1016/j.engappai.2025.110640" target="_blank" rel="noopener noreferrer" aria-label="DOI link for A lightweight and robust detection network for diverse glass surface defects via scale- and shape-aware feature extraction">DOI</a></div>
+        </article>
+          <p><a class="hb-cta-link" href="/publications/">查看全部论文成果 / View All Publications</a></p>
+        </div>
+    design:
+      columns: '1'
 ---
