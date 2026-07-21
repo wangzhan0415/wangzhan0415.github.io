@@ -12,10 +12,10 @@
 {{ $withDoi := where $publications ".Params.url_doi" "ne" "" }}
 
 <section class="zw-publication-feed" data-publication-feed data-total-count="{{ len $publications }}" data-article-count="{{ len $articles }}" data-conference-count="{{ len $conferences }}">
-  <div class="zw-publication-feed__inner">
+  <div class="zw-publication-feed__panel">
     <header class="zw-publication-feed__heading">
-      {{ with index $content "title" }}<h2>{{ . }}</h2>{{ end }}
-      {{ with index $content "subtitle" }}<p>{{ . }}</p>{{ end }}
+      {{ with index $content "subtitle" }}<p class="zw-publication-feed__eyebrow">{{ . }}</p>{{ end }}
+      {{ with index $content "title" }}<h1>{{ . }}</h1>{{ end }}
     </header>
 
     <div class="zw-publication-filter" role="group" aria-label="Filter publications by type">
@@ -40,15 +40,23 @@
         {{ if eq $type "Journal Article" }}{{ $filterType = "article" }}{{ $typeLabel = "Article" }}{{ else if eq $type "Conference Paper" }}{{ $filterType = "conference" }}{{ $typeLabel = "Conference Paper" }}{{ end }}
         {{ $displayDate := .Params.display_date | default (.Date.Format "Jan 2006") }}
         <article class="zw-publication-card" data-publication-card data-publication-type="{{ $filterType }}" data-stable-id="{{ .Params.stable_id }}" data-sort-date="{{ .Date.Format "2006-01-02" }}">
-          <div class="zw-publication-card__header">
-            <span class="zw-publication-card__type">{{ $typeLabel }}</span>
-            <span class="zw-publication-card__date">{{ $displayDate }}</span>
-          </div>
           <h3 class="zw-publication-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          {{ with .Params.publication }}<p class="zw-publication-card__venue"><em>{{ . }}</em></p>{{ end }}
+          <div class="zw-publication-card__badges">
+            <span class="zw-publication-card__type">{{ $typeLabel }}</span>
+            {{ $pubTitle := .Title }}{{ with .Params.url_doi }}<a class="zw-publication-card__doi" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="DOI link for {{ $pubTitle }}">DOI</a>{{ end }}
+          </div>
+          <p class="zw-publication-card__meta">
+            <span class="zw-publication-card__date">{{ $displayDate }}</span>
+            {{ with .Params.publication }}
+              <span class="zw-publication-card__meta-separator" aria-hidden="true">·</span>
+              <span class="zw-publication-card__venue">{{ . }}</span>
+            {{ end }}
+          </p>
           {{ $authorsDisplay := .Params.authors_display }}
           {{ if $authorsDisplay }}
             {{ $authorsHtml := $authorsDisplay | htmlEscape }}
+            {{ $authorsHtml = replace $authorsHtml "; " " · " }}
+            {{ $authorsHtml = replace $authorsHtml ";" " · " }}
             {{ $authorsHtml = replace $authorsHtml "Zhan Wang" "<strong>Zhan Wang</strong>" }}
             {{ $authorsHtml = replace $authorsHtml "王战" "<strong>王战</strong>" }}
             <p class="zw-publication-card__authors">{{ $authorsHtml | safeHTML }}</p>
@@ -67,8 +75,7 @@
             {{ end }}
           {{ end }}
           <div class="zw-publication-card__actions">
-            <a class="zw-publication-card__view" href="{{ .RelPermalink }}">查看详情 <span lang="en">View</span> →</a>
-            {{ $pubTitle := .Title }}{{ with .Params.url_doi }}<a class="zw-publication-card__doi" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="DOI link for {{ $pubTitle }}">DOI</a>{{ end }}
+            <a class="zw-publication-card__view" href="{{ .RelPermalink }}">查看详情 <span lang="en">View details</span> →</a>
           </div>
         </article>
       {{ end }}
