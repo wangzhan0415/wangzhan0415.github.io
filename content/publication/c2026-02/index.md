@@ -3,7 +3,7 @@ title: "A Parametric Study of Microwave Detection of Metallic Foreign Objects on
 stable_id: "C2026-02"
 authors: []
 authors_display: ""
-date: 2026-12-20T00:00:00Z
+date: 2026-01-01T00:00:00Z
 display_year: 2026
 display_month: ""
 display_date: "2026"
