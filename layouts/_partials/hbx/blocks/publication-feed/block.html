@@ -53,27 +53,22 @@
               <span class="zw-publication-card__venue">{{ . }}</span>
             {{ end }}
           </p>
-          {{ $authorsDisplay := .Params.authors_display }}
-          {{ if $authorsDisplay }}
-            {{ $authorsHtml := $authorsDisplay | htmlEscape }}
-            {{ $authorsHtml = replace $authorsHtml "; " " · " }}
-            {{ $authorsHtml = replace $authorsHtml ";" " · " }}
-            {{ $authorsHtml = replace $authorsHtml "Zhan Wang" "<strong>Zhan Wang</strong>" }}
-            {{ $authorsHtml = replace $authorsHtml "王战" "<strong>王战</strong>" }}
-            <p class="zw-publication-card__authors">{{ $authorsHtml | safeHTML }}</p>
-          {{ else }}
-            {{ with .Params.authors }}
-              <p class="zw-publication-card__authors">
-                {{ range $index, $author := . }}
-                  {{ if $index }}; {{ end }}
-                  {{ if or (eq $author "Zhan Wang") (eq $author "王战") }}
-                    <strong>{{ $author }}</strong>
-                  {{ else }}
-                    {{ $author }}
-                  {{ end }}
-                {{ end }}
-              </p>
+          {{ with .Params.authors }}
+            {{ $authors := . }}
+            {{ $authorsComplete := .Params.authors_complete }}
+            {{ $displayAuthors := $authors }}
+            {{ $needsEtAl := not $authorsComplete }}
+            {{ if and $authorsComplete (gt (len $authors) 10) }}
+              {{ $displayAuthors = first 10 $authors }}
+              {{ $needsEtAl = true }}
             {{ end }}
+            <p class="zw-publication-card__authors">
+              {{ range $index, $author := $displayAuthors }}
+                {{ if $index }}<span aria-hidden="true"> · </span>{{ end }}
+                {{ if or (eq $author "Zhan Wang") (eq $author "王战") }}<strong>{{ $author }}</strong>{{ else }}{{ $author }}{{ end }}
+              {{ end }}
+              {{ if $needsEtAl }}{{ if gt (len $displayAuthors) 0 }}<span aria-hidden="true"> · </span>{{ end }}<span>et al.</span>{{ end }}
+            </p>
           {{ end }}
           <div class="zw-publication-card__actions">
             <a class="zw-publication-card__view" href="{{ .RelPermalink }}">查看详情 <span lang="en">View details</span> <span aria-hidden="true">→</span></a>
