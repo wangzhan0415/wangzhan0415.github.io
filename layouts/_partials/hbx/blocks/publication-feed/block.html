@@ -52,10 +52,19 @@
             {{ $authorsHtml = replace $authorsHtml "Zhan Wang" "<strong>Zhan Wang</strong>" }}
             {{ $authorsHtml = replace $authorsHtml "王战" "<strong>王战</strong>" }}
             <p class="zw-publication-card__authors">{{ $authorsHtml | safeHTML }}</p>
-          {{ else with .Params.authors }}
-            <p class="zw-publication-card__authors">
-              {{ range $index, $author := . }}{{ if $index }}; {{ end }}{{ if or (eq $author "Zhan Wang") (eq $author "王战") }}<strong>{{ $author }}</strong>{{ else }}{{ $author }}{{ end }}{{ end }}
-            </p>
+          {{ else }}
+            {{ with .Params.authors }}
+              <p class="zw-publication-card__authors">
+                {{ range $index, $author := . }}
+                  {{ if $index }}; {{ end }}
+                  {{ if or (eq $author "Zhan Wang") (eq $author "王战") }}
+                    <strong>{{ $author }}</strong>
+                  {{ else }}
+                    {{ $author }}
+                  {{ end }}
+                {{ end }}
+              </p>
+            {{ end }}
           {{ end }}
           <div class="zw-publication-card__actions">
             <a class="zw-publication-card__view" href="{{ .RelPermalink }}">查看详情 <span lang="en">View</span> →</a>
