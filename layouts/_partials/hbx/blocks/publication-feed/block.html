@@ -53,9 +53,9 @@
               <span class="zw-publication-card__venue">{{ . }}</span>
             {{ end }}
           </p>
-          {{ with .Params.authors }}
-            {{ $authors := . }}
-            {{ $authorsComplete := .Params.authors_complete }}
+          {{ $authors := .Params.authors | default (slice) }}
+          {{ $authorsComplete := .Params.authors_complete | default false }}
+          {{ if gt (len $authors) 0 }}
             {{ $displayAuthors := $authors }}
             {{ $needsEtAl := not $authorsComplete }}
             {{ if and $authorsComplete (gt (len $authors) 10) }}
@@ -64,10 +64,21 @@
             {{ end }}
             <p class="zw-publication-card__authors">
               {{ range $index, $author := $displayAuthors }}
-                {{ if $index }}<span aria-hidden="true"> · </span>{{ end }}
-                {{ if or (eq $author "Zhan Wang") (eq $author "王战") }}<strong>{{ $author }}</strong>{{ else }}{{ $author }}{{ end }}
+                {{ if $index }}
+                  <span aria-hidden="true"> · </span>
+                {{ end }}
+                {{ if or (eq $author "Zhan Wang") (eq $author "王战") }}
+                  <strong>{{ $author }}</strong>
+                {{ else }}
+                  {{ $author }}
+                {{ end }}
               {{ end }}
-              {{ if $needsEtAl }}{{ if gt (len $displayAuthors) 0 }}<span aria-hidden="true"> · </span>{{ end }}<span>et al.</span>{{ end }}
+              {{ if $needsEtAl }}
+                {{ if gt (len $displayAuthors) 0 }}
+                  <span aria-hidden="true"> · </span>
+                {{ end }}
+                <span>et al.</span>
+              {{ end }}
             </p>
           {{ end }}
           <div class="zw-publication-card__actions">
