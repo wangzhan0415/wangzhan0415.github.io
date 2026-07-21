@@ -20,13 +20,13 @@
 
     <div class="zw-publication-filter" role="group" aria-label="Filter publications by type">
       <button class="zw-publication-filter__button" type="button" data-publication-filter="all" aria-pressed="true">
-        <span>全部 <span lang="en">All</span></span><span class="zw-publication-filter__count">{{ len $publications }}</span>
+        <span class="zw-publication-filter__label">全部 <span lang="en">All</span></span><span class="zw-publication-filter__count">{{ len $publications }}</span>
       </button>
       <button class="zw-publication-filter__button" type="button" data-publication-filter="article" aria-pressed="false">
-        <span>期刊论文 <span lang="en">Articles</span></span><span class="zw-publication-filter__count">{{ len $articles }}</span>
+        <span class="zw-publication-filter__label">期刊论文 <span lang="en">Articles</span></span><span class="zw-publication-filter__count">{{ len $articles }}</span>
       </button>
       <button class="zw-publication-filter__button" type="button" data-publication-filter="conference" aria-pressed="false">
-        <span>会议论文 <span lang="en">Conference Papers</span></span><span class="zw-publication-filter__count">{{ len $conferences }}</span>
+        <span class="zw-publication-filter__label">会议论文 <span lang="en">Conference Papers</span></span><span class="zw-publication-filter__count">{{ len $conferences }}</span>
       </button>
     </div>
 
@@ -75,7 +75,7 @@
             {{ end }}
           {{ end }}
           <div class="zw-publication-card__actions">
-            <a class="zw-publication-card__view" href="{{ .RelPermalink }}">查看详情 <span lang="en">View details</span> →</a>
+            <a class="zw-publication-card__view" href="{{ .RelPermalink }}">查看详情 <span lang="en">View details</span> <span aria-hidden="true">→</span></a>
           </div>
         </article>
       {{ end }}
