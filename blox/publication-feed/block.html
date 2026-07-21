@@ -1,0 +1,75 @@
+{{/* Local Hugo Blox block: dynamic Publications feed */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+
+{{ $publications := where site.RegularPages "Section" "publication" }}
+{{ $publications = where $publications ".Params.draft" "ne" true }}
+{{ $publications = sort (sort $publications ".Params.stable_id" "desc") "Date" "desc" }}
+{{ $articles := where $publications ".Params.publication_type" "Journal Article" }}
+{{ $conferences := where $publications ".Params.publication_type" "Conference Paper" }}
+{{ $withDoi := where $publications ".Params.url_doi" "ne" "" }}
+
+<section class="zw-publication-feed" data-publication-feed data-total-count="{{ len $publications }}" data-article-count="{{ len $articles }}" data-conference-count="{{ len $conferences }}">
+  <div class="zw-publication-feed__inner">
+    <header class="zw-publication-feed__heading">
+      {{ with index $content "title" }}<h2>{{ . }}</h2>{{ end }}
+      {{ with index $content "subtitle" }}<p>{{ . }}</p>{{ end }}
+    </header>
+
+    <div class="zw-publication-filter" role="group" aria-label="Filter publications by type">
+      <button class="zw-publication-filter__button" type="button" data-publication-filter="all" aria-pressed="true">
+        <span>全部 <span lang="en">All</span></span><span class="zw-publication-filter__count">{{ len $publications }}</span>
+      </button>
+      <button class="zw-publication-filter__button" type="button" data-publication-filter="article" aria-pressed="false">
+        <span>期刊论文 <span lang="en">Articles</span></span><span class="zw-publication-filter__count">{{ len $articles }}</span>
+      </button>
+      <button class="zw-publication-filter__button" type="button" data-publication-filter="conference" aria-pressed="false">
+        <span>会议论文 <span lang="en">Conference Papers</span></span><span class="zw-publication-filter__count">{{ len $conferences }}</span>
+      </button>
+    </div>
+
+    <p class="zw-publication-feed__status" data-publication-status aria-live="polite">Showing all {{ len $publications }} publications.</p>
+
+    <div class="zw-publication-list">
+      {{ range $publications }}
+        {{ $type := .Params.publication_type }}
+        {{ $filterType := "" }}
+        {{ $typeLabel := $type }}
+        {{ if eq $type "Journal Article" }}{{ $filterType = "article" }}{{ $typeLabel = "Article" }}{{ else if eq $type "Conference Paper" }}{{ $filterType = "conference" }}{{ $typeLabel = "Conference Paper" }}{{ end }}
+        {{ $displayDate := .Params.display_date | default (.Date.Format "Jan 2006") }}
+        <article class="zw-publication-card" data-publication-card data-publication-type="{{ $filterType }}" data-stable-id="{{ .Params.stable_id }}" data-sort-date="{{ .Date.Format "2006-01-02" }}">
+          <div class="zw-publication-card__header">
+            <span class="zw-publication-card__type">{{ $typeLabel }}</span>
+            <span class="zw-publication-card__date">{{ $displayDate }}</span>
+          </div>
+          <h3 class="zw-publication-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          {{ with .Params.publication }}<p class="zw-publication-card__venue"><em>{{ . }}</em></p>{{ end }}
+          {{ $authorsDisplay := .Params.authors_display }}
+          {{ if $authorsDisplay }}
+            {{ $authorsHtml := $authorsDisplay | htmlEscape }}
+            {{ $authorsHtml = replace $authorsHtml "Zhan Wang" "<strong>Zhan Wang</strong>" }}
+            {{ $authorsHtml = replace $authorsHtml "王战" "<strong>王战</strong>" }}
+            <p class="zw-publication-card__authors">{{ $authorsHtml | safeHTML }}</p>
+          {{ else with .Params.authors }}
+            <p class="zw-publication-card__authors">
+              {{ range $index, $author := . }}{{ if $index }}; {{ end }}{{ if or (eq $author "Zhan Wang") (eq $author "王战") }}<strong>{{ $author }}</strong>{{ else }}{{ $author }}{{ end }}{{ end }}
+            </p>
+          {{ end }}
+          <div class="zw-publication-card__actions">
+            <a class="zw-publication-card__view" href="{{ .RelPermalink }}">查看详情 <span lang="en">View</span> →</a>
+            {{ $pubTitle := .Title }}{{ with .Params.url_doi }}<a class="zw-publication-card__doi" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="DOI link for {{ $pubTitle }}">DOI</a>{{ end }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+
+    <p class="zw-publication-feed__empty" data-publication-empty hidden>未找到该类型的论文成果。<br><span lang="en">No publications found for this filter.</span></p>
+  </div>
+</section>
+
+{{ with resources.Get "js/publication-filter.js" }}
+  {{ $js := . | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ end }}
