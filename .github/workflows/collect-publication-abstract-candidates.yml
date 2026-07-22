@@ -1,0 +1,86 @@
+name: Collect Publication Abstract Candidates
+
+on:
+  workflow_dispatch:
+    inputs:
+      stable_id:
+        description: "Optional stable ID, for example J2026-01. Leave empty for all."
+        required: false
+        default: ""
+        type: string
+      include_publisher_pages:
+        description: "Try official publisher landing-page metadata when DOI registries have no abstract"
+        required: true
+        default: false
+        type: boolean
+      delay_seconds:
+        description: "Delay between external requests in seconds"
+        required: true
+        default: "1.0"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publication-abstract-candidate-collection
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate collector syntax
+        run: |
+          python -m py_compile scripts/collect_publication_abstract_candidates.py
+          python -m py_compile scripts/apply_approved_publication_abstracts.py
+
+      - name: Collect abstract candidates
+        shell: bash
+        env:
+          CROSSREF_MAILTO: zhanwang@zjenergy.com.cn
+          METADATA_USER_AGENT: "wangzhan0415.github.io abstract candidate collector (mailto:zhanwang@zjenergy.com.cn)"
+        run: |
+          EXTRA_ARGS=()
+
+          if [ -n "${{ inputs.stable_id }}" ]; then
+            EXTRA_ARGS+=(--stable-id "${{ inputs.stable_id }}")
+          fi
+
+          if [ "${{ inputs.include_publisher_pages }}" = "true" ]; then
+            EXTRA_ARGS+=(--include-publisher-pages)
+          fi
+
+          python scripts/collect_publication_abstract_candidates.py \
+            --output-dir artifacts/publication-abstract-candidates \
+            --delay-seconds "${{ inputs.delay_seconds }}" \
+            "${EXTRA_ARGS[@]}"
+
+      - name: Verify publication sources were not modified
+        run: |
+          git diff --exit-code -- content/publication
+
+      - name: Verify review output
+        run: |
+          test -s artifacts/publication-abstract-candidates/abstract_candidates_review.csv
+          test -s artifacts/publication-abstract-candidates/abstract_candidates.json
+          test -s artifacts/publication-abstract-candidates/summary.md
+          test -s artifacts/publication-abstract-candidates/review_instructions.md
+
+      - name: Upload review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-abstract-candidates-${{ github.run_number }}
+          path: artifacts/publication-abstract-candidates/
+          if-no-files-found: error
+          retention-days: 14
