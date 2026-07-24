@@ -2,12 +2,25 @@
 title: "Design and Application of Intelligent Patrol Digital Twin System in Smart Power Plant"
 authors:
   - "Hui Sun"
-  - "Zhan Wang"
   - "Quanjie Chen"
+  - "Rongdong Yu"
   - "Dan Wang"
-authors_display: "Hui Sun; Zhan Wang; Quanjie Chen; Dan Wang"
-authors_complete: false
-authors_source: "existing-partial"
+  - "Zhan Wang"
+  - "Zhou Luo"
+  - "Hai Shang"
+authors_display: "Hui Sun; Quanjie Chen; Rongdong Yu; Dan Wang; Zhan Wang; Zhou Luo; Hai Shang"
+authors_complete: true
+authors_source: "reviewed-publication-pdf"
+abstract: |-
+  The collection of patrol inspection data in the power plant can be gradually acquired by robots at the physical level. However, the summary processing and comprehensive display of these large amounts of data need to be more in line with the visualization requirements. In this paper, an intelligent patrol digital twin system is designed, which can effectively analyze, optimize and display the inspection process. Under the reality status, through the comprehensive application of various digital twin technologies, the system effectively integrates various process flows of the intelligent power plant inspection process, achieving a multi-dimensional, efficient, and deductive digital twin platform with verification mechanism, demonstrating enormous application value in the digital transformation process of power plants.
+abstract_source: "reviewed-publication-pdf"
+keywords:
+  - "intelligent patrol"
+  - "digital twin system"
+keywords_source: "reviewed-publication-pdf"
+keywords_status: "verified"
+metadata_status: "reviewed"
+metadata_retrieved_at: "2026-07-23"
 author_details: []
 date: "2023-12-28T00:00:00Z"
 display_date: "Dec 2023"
@@ -15,10 +28,6 @@ publication_type: "Conference Paper"
 publication: "2023 5th International Conference on Robotics, Intelligent Control and Artificial Intelligence (RICAI)"
 doi: "10.1109/RICAI60863.2023.10488971"
 url_doi: "https://doi.org/10.1109/RICAI60863.2023.10488971"
-abstract: ""
-abstract_source: ""
-keywords: []
-keywords_source: ""
 subjects: []
 subjects_source: ""
 publisher: ""
@@ -31,8 +40,6 @@ pages: ""
 article_number: ""
 landing_page: ""
 language: ""
-metadata_retrieved_at: ""
-metadata_status: "failed"
 jcr:
   edition: ""
   metric_year: ""

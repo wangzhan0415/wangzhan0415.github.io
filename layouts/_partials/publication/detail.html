@@ -2,9 +2,14 @@
 {{ $type := $p.publication_type }}
 {{ $displayDate := $p.display_date | default (.Date.Format "Jan 2006") }}
 {{ $doiURL := $p.url_doi }}
+{{ $landingPage := $p.landing_page }}
+{{ $authors := $p.authors | default (slice) }}
+{{ $authorCount := len $authors }}
+{{ $hasKeywords := and (eq $p.keywords_status "verified") (gt (len ($p.keywords | default (slice))) 0) }}
 <main class="zw-publication-detail">
   <article class="zw-publication-detail__panel">
-    <a class="zw-publication-detail__back" href="/publications/">← 返回论文成果 <span lang="en">Back to publications</span></a>
+    <a class="zw-publication-detail__back" href="{{ relref . "/publications" }}">← 返回论文成果 <span lang="en">Back to Publications</span></a>
+
     <header class="zw-publication-detail__hero">
       <div class="zw-publication-detail__kicker">
         {{ with $type }}<span>{{ . }}</span>{{ end }}
@@ -12,39 +17,72 @@
       </div>
       <h1>{{ .Title }}</h1>
       {{ with $p.publication }}<p class="zw-publication-detail__venue">{{ . }}</p>{{ end }}
-      {{ with $p.authors }}
-        <p class="zw-publication-detail__authors">
-          {{ range $i, $a := . }}{{ if $i }}<span aria-hidden="true"> · </span>{{ end }}{{ if or (eq $a "Zhan Wang") (eq $a "王战") }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
-          {{ if not $p.authors_complete }}{{ if gt (len .) 0 }}<span aria-hidden="true"> · </span>{{ end }}<span>et al.</span>{{ end }}
+      {{ if gt $authorCount 0 }}
+        <p class="zw-publication-detail__authors" aria-label="Authors">
+          {{ range $i, $author := $authors }}
+            {{ $authorTrimmed := strings.TrimSpace $author }}
+            {{ $normalizedAuthor := lower (replaceRE `\s+` " " $authorTrimmed) }}
+            {{ $isOwner := or (eq $normalizedAuthor "zhan wang") (eq $normalizedAuthor "wang zhan") (eq $authorTrimmed "王战") }}
+            {{ if $i }}<span class="zw-publication-detail__author-separator" aria-hidden="true">·</span>{{ end }}
+            {{ if $isOwner }}<strong>{{ $authorTrimmed }}</strong>{{ else }}<span>{{ $authorTrimmed }}</span>{{ end }}
+          {{ end }}
         </p>
+      {{ end }}
+      {{ if or $doiURL $landingPage }}
+        <div class="zw-publication-detail__actions" aria-label="Publication links">
+          {{ with $doiURL }}<a class="zw-publication-detail__action zw-publication-detail__action--primary" href="{{ . }}" target="_blank" rel="noopener noreferrer">DOI</a>{{ end }}
+          {{ with $landingPage }}<a class="zw-publication-detail__action" href="{{ . }}" target="_blank" rel="noopener noreferrer">Publisher Page</a>{{ end }}
+        </div>
       {{ end }}
     </header>
 
-    <section class="zw-publication-detail__section" aria-labelledby="metadata-title">
-      <h2 id="metadata-title">Bibliographic Information</h2>
-      <dl class="zw-publication-detail__meta-grid">
-        {{ with $type }}<div><dt>Publication Type</dt><dd>{{ . }}</dd></div>{{ end }}
-        {{ with $p.publication }}<div><dt>{{ if eq $type "Journal Article" }}Journal{{ else }}Conference{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
-        {{ with $p.publisher }}<div><dt>Publisher</dt><dd>{{ . }}</dd></div>{{ end }}
-        {{ with $displayDate }}<div><dt>Publication Date</dt><dd>{{ . }}</dd></div>{{ end }}
-        {{ with $doiURL }}<div><dt>DOI</dt><dd><a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ $p.doi }}</a></dd></div>{{ end }}
-        {{ with $p.volume }}<div><dt>Volume</dt><dd>{{ . }}</dd></div>{{ end }}
-        {{ with $p.issue }}<div><dt>Issue</dt><dd>{{ . }}</dd></div>{{ end }}
-        {{ with $p.pages }}<div><dt>Pages</dt><dd>{{ . }}</dd></div>{{ end }}
-        {{ with $p.article_number }}<div><dt>Article Number</dt><dd>{{ . }}</dd></div>{{ end }}
-        {{ with $p.issn }}<div><dt>ISSN</dt><dd>{{ delimit . "; " }}</dd></div>{{ end }}
-        {{ with $p.eissn }}<div><dt>eISSN</dt><dd>{{ . }}</dd></div>{{ end }}
-        {{ with $p.language }}<div><dt>Language</dt><dd>{{ . }}</dd></div>{{ end }}
-        {{ with $p.landing_page }}<div><dt>Publisher Page</dt><dd><a href="{{ . }}" target="_blank" rel="noopener noreferrer">Open page</a></dd></div>{{ end }}
-      </dl>
-    </section>
+    <div class="zw-publication-detail__content-grid">
+      <div class="zw-publication-detail__main">
+        {{ with $p.abstract }}
+          <section class="zw-publication-detail__section" aria-labelledby="abstract-title">
+            <h2 id="abstract-title">Abstract</h2>
+            <p class="zw-publication-detail__abstract">{{ . }}</p>
+          </section>
+        {{ end }}
 
-    {{ with $p.abstract }}<section class="zw-publication-detail__section"><h2>Abstract</h2><p class="zw-publication-detail__abstract">{{ . }}</p></section>{{ end }}
-    {{ with $p.keywords }}<section class="zw-publication-detail__section"><h2>Keywords</h2><div class="zw-publication-detail__tags">{{ range . }}<span>{{ . }}</span>{{ end }}</div></section>{{ end }}
-    {{ with $p.subjects }}<section class="zw-publication-detail__section"><h2>Subjects</h2><div class="zw-publication-detail__tags zw-publication-detail__tags--subjects">{{ range . }}<span>{{ . }}</span>{{ end }}</div></section>{{ end }}
+        <section class="zw-publication-detail__section" aria-labelledby="keywords-title">
+          <h2 id="keywords-title">Keywords</h2>
+          {{ if $hasKeywords }}
+            <div class="zw-publication-detail__tags">
+              {{ range $p.keywords }}<span>{{ . }}</span>{{ end }}
+            </div>
+          {{ else if eq $p.keywords_status "not-provided-in-pdf" }}
+            <p class="zw-publication-detail__empty-note">Keywords were not provided in the source PDF.</p>
+          {{ end }}
+        </section>
+      </div>
 
-    {{ if and (eq $type "Journal Article") $p.jcr (or $p.jcr.jif (gt (len $p.jcr.categories) 0)) }}
-      <section class="zw-publication-detail__section zw-publication-detail__metrics"><h2>Journal Metrics</h2>
+      <aside class="zw-publication-detail__sidebar" aria-labelledby="bibliographic-title">
+        <section class="zw-publication-detail__sidebar-card">
+          <h2 id="bibliographic-title">Bibliographic Information</h2>
+          <dl>
+            {{ with $type }}<div><dt>Publication Type</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.publication }}<div><dt>{{ if eq $type "Journal Article" }}Journal{{ else }}Conference{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $displayDate }}<div><dt>Publication Date</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ if gt $authorCount 0 }}<div><dt>Authors</dt><dd>{{ $authorCount }}</dd></div>{{ end }}
+            {{ with $doiURL }}<div><dt>DOI</dt><dd><a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ $p.doi }}</a></dd></div>{{ end }}
+            {{ with $p.publisher }}<div><dt>Publisher</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.volume }}<div><dt>Volume</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.issue }}<div><dt>Issue</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.pages }}<div><dt>Pages</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.article_number }}<div><dt>Article Number</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.issn }}<div><dt>ISSN</dt><dd>{{ if reflect.IsSlice . }}{{ delimit . "; " }}{{ else }}{{ . }}{{ end }}</dd></div>{{ end }}
+            {{ with $p.eissn }}<div><dt>eISSN</dt><dd>{{ if reflect.IsSlice . }}{{ delimit . "; " }}{{ else }}{{ . }}{{ end }}</dd></div>{{ end }}
+            {{ with $p.language }}<div><dt>Language</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $landingPage }}<div><dt>Publisher Page</dt><dd><a href="{{ . }}" target="_blank" rel="noopener noreferrer">Open page</a></dd></div>{{ end }}
+          </dl>
+        </section>
+      </aside>
+    </div>
+
+    {{ if and (eq $type "Journal Article") $p.jcr (or $p.jcr.jif (gt (len ($p.jcr.categories | default (slice))) 0)) }}
+      <section class="zw-publication-detail__section zw-publication-detail__metrics" aria-labelledby="metrics-title">
+        <h2 id="metrics-title">Journal Metrics</h2>
         {{ with $p.jcr.jif }}<div class="zw-publication-detail__jif"><span>Journal Impact Factor</span><strong>{{ . }}</strong><small>{{ $p.jcr.metric_year }} metric, JCR {{ $p.jcr.edition }}</small></div>{{ end }}
         {{ with $p.jcr.categories }}<h3>Categories</h3>{{ range . }}<p><strong>{{ .name }}</strong>{{ with .quartile }} — {{ . }}{{ end }}{{ if or .rank .total }}<br><small>Rank {{ .rank }}/{{ .total }}</small>{{ end }}{{ with .percentile }}<br><small>Percentile {{ . }}</small>{{ end }}</p>{{ end }}{{ end }}
         <p class="zw-publication-detail__note">Journal-level metrics; not an article-level evaluation.</p>
@@ -52,19 +90,22 @@
     {{ end }}
 
     <footer class="zw-publication-detail__source-note">
-      Bibliographic metadata retrieved from DOI registration metadata and official publisher sources when available.
-      {{ if and $p.jcr $p.jcr.source }} Journal metrics verified from Clarivate Journal Citation Reports.{{ end }}
+      <p>Authors, abstract and keywords were transcribed from the matched publication PDF and manually reviewed.</p>
+      <p>Bibliographic metadata may additionally use DOI registration or official publisher sources when available.</p>
+      <p>Journal metrics are displayed only when separately verified.</p>
     </footer>
   </article>
 </main>
 {{ $schema := dict "@context" "https://schema.org" "@type" "ScholarlyArticle" "headline" .Title "url" .Permalink }}
-{{ with $p.authors }}{{ $schema = merge $schema (dict "author" .) }}{{ end }}
+{{ $authorObjects := slice }}
+{{ range $authors }}{{ $authorObjects = $authorObjects | append (dict "@type" "Person" "name" .) }}{{ end }}
+{{ if gt (len $authorObjects) 0 }}{{ $schema = merge $schema (dict "author" $authorObjects) }}{{ end }}
 {{ with .Date }}{{ $schema = merge $schema (dict "datePublished" (.Format "2006-01-02")) }}{{ end }}
 {{ with $p.publication }}{{ $schema = merge $schema (dict "isPartOf" .) }}{{ end }}
 {{ with $p.publisher }}{{ $schema = merge $schema (dict "publisher" .) }}{{ end }}
 {{ with $p.doi }}{{ $schema = merge $schema (dict "identifier" .) }}{{ end }}
 {{ with $p.abstract }}{{ $schema = merge $schema (dict "abstract" .) }}{{ end }}
-{{ with $p.keywords }}{{ $schema = merge $schema (dict "keywords" .) }}{{ end }}
+{{ if $hasKeywords }}{{ $schema = merge $schema (dict "keywords" $p.keywords) }}{{ end }}
 {{ with $p.pages }}{{ $schema = merge $schema (dict "pagination" .) }}{{ end }}
 {{ with $p.volume }}{{ $schema = merge $schema (dict "volumeNumber" .) }}{{ end }}
 {{ with $p.issue }}{{ $schema = merge $schema (dict "issueNumber" .) }}{{ end }}
