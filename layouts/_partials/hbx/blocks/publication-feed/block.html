@@ -67,10 +67,13 @@
                 {{ if $index }}
                   <span aria-hidden="true"> · </span>
                 {{ end }}
-                {{ if or (eq $author "Zhan Wang") (eq $author "王战") }}
-                  <strong>{{ $author }}</strong>
+                {{ $authorTrimmed := strings.TrimSpace $author }}
+                {{ $normalizedAuthor := lower (replaceRE `\s+` " " $authorTrimmed) }}
+                {{ $isOwner := or (eq $normalizedAuthor "zhan wang") (eq $normalizedAuthor "wang zhan") (eq $authorTrimmed "王战") }}
+                {{ if $isOwner }}
+                  <strong>{{ $authorTrimmed }}</strong>
                 {{ else }}
-                  {{ $author }}
+                  {{ $authorTrimmed }}
                 {{ end }}
               {{ end }}
               {{ if $needsEtAl }}
