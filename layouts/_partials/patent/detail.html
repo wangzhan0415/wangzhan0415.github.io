@@ -1,0 +1,53 @@
+{{ $p := .Params }}
+{{ $inventors := $p.inventors | default (slice) }}
+{{ $patentees := $p.patentees | default (slice) }}
+<main class="zw-patent-detail">
+  <article class="zw-patent-detail__panel">
+    <a class="zw-patent-detail__back" href="{{ relref . "/patents" }}">← 返回授权专利 <span lang="en">Back to Patents</span></a>
+    <header class="zw-patent-detail__hero">
+      <div class="zw-patent-detail__kicker">
+        {{ with $p.patent_type }}<span>{{ . }}</span>{{ end }}
+        {{ with $p.display_date }}<span>授权公告日 {{ . }}</span>{{ end }}
+      </div>
+      <h1 class="zw-patent-detail__title">{{ .Title }}</h1>
+      <p class="zw-patent-detail__inventors" aria-label="Inventors">
+        {{ range $index, $inventor := $inventors }}{{ if $index }}<span aria-hidden="true"> · </span>{{ end }}{{ if eq $inventor "王战" }}<strong class="zw-patent-detail__owner">{{ $inventor }}</strong>{{ else }}<span>{{ $inventor }}</span>{{ end }}{{ end }}
+      </p>
+      {{ with $p.owner_role }}<span class="zw-patent-detail__role">{{ . }} / {{ if eq . "第一发明人" }}First Inventor{{ else }}Co-Inventor{{ end }}</span>{{ end }}
+    </header>
+
+    <div class="zw-patent-detail__content-grid">
+      <div class="zw-patent-detail__main">
+        <section class="zw-patent-detail__section" aria-labelledby="patent-inventors-title">
+          <h2 id="patent-inventors-title">Inventors / 发明人</h2>
+          <p class="zw-patent-detail__inventors">{{ range $index, $inventor := $inventors }}{{ if $index }}<span aria-hidden="true"> · </span>{{ end }}{{ if eq $inventor "王战" }}<strong class="zw-patent-detail__owner">{{ $inventor }}</strong>{{ else }}<span>{{ $inventor }}</span>{{ end }}{{ end }}</p>
+        </section>
+        <section class="zw-patent-detail__section" aria-labelledby="patentees-title">
+          <h2 id="patentees-title">Patentees / 专利权人</h2>
+          <ul class="zw-patent-detail__patentees">{{ range $patentees }}<li>{{ . }}</li>{{ end }}</ul>
+        </section>
+        <section class="zw-patent-detail__section zw-patent-detail__source-note" aria-labelledby="provenance-title">
+          <h2 id="provenance-title">Data Provenance / 数据来源说明</h2>
+          <p>专利信息依据授权发明专利证书整理，未对授权后的转让、质押、无效、终止或恢复等动态法律状态进行外部核验。</p>
+          <p lang="en">Patent information was transcribed from the granted invention patent certificate. Subsequent changes in legal status have not been independently verified.</p>
+        </section>
+      </div>
+
+      <aside class="zw-patent-detail__sidebar" aria-labelledby="patent-information-title">
+        <section class="zw-patent-detail__sidebar-card">
+          <h2 id="patent-information-title">Patent Information / 专利信息</h2>
+          <dl>
+            {{ with $p.patent_type }}<div><dt>Patent Type / 专利类型</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.patent_number }}<div><dt>Patent Number / 专利号</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.application_date }}<div><dt>Application Date / 申请日</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.grant_date }}<div><dt>Grant Date / 授权公告日</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.grant_publication_number }}<div><dt>Grant Publication Number / 授权公告号</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.certificate_number }}<div><dt>Certificate Number / 证书号</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{ with $p.owner_inventor_rank }}<div><dt>Inventor Rank / 本人发明人排序</dt><dd>{{ . }} / {{ len $inventors }}</dd></div>{{ end }}
+            {{ with $p.owner_role }}<div><dt>Role / 本人角色</dt><dd>{{ . }}</dd></div>{{ end }}
+          </dl>
+        </section>
+      </aside>
+    </div>
+  </article>
+</main>
