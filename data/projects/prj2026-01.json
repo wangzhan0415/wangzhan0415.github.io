@@ -1,0 +1,30 @@
+{
+  "stable_id": "PRJ2026-01",
+  "title": "海上风电平台智能巡检与遥操作检修机器人系统关键技术研究",
+  "start_date": "2026-01-01",
+  "end_date": "2028-12-31",
+  "display_period": "2026.01—2028.12",
+  "status": "在研",
+  "status_key": "in-progress",
+  "project_type": "科研计划项目",
+  "project_program": "浙江省尖兵计划项目-深远海风电重大专项",
+  "project_level": "省部级",
+  "level_rank": 500,
+  "sort_key": "500|2026-01-01|PRJ2026-01",
+  "role": "项目负责人",
+  "role_group": "主持",
+  "public_summary": "面向海上风电平台智能巡检与检修需求，开展巡检机器人研发、导航感知和遥操作系统设计。",
+  "research_topics": [
+    "海上风电",
+    "巡检机器人",
+    "导航感知",
+    "遥操作"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

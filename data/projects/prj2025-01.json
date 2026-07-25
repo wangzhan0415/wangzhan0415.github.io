@@ -1,0 +1,30 @@
+{
+  "stable_id": "PRJ2025-01",
+  "title": "面向复杂场景的高端工业运维软件",
+  "start_date": "2025-01-01",
+  "end_date": "2026-12-31",
+  "display_period": "2025.01—2026.12",
+  "status": "在研",
+  "status_key": "in-progress",
+  "project_type": "科研计划项目",
+  "project_program": "浙江省尖兵计划项目",
+  "project_level": "省部级",
+  "level_rank": 500,
+  "sort_key": "500|2025-01-01|PRJ2025-01",
+  "role": "参与人员",
+  "role_group": "参与",
+  "public_summary": "面向复杂场景工业运维，开展工业大模型运维软件、数字孪生和算法生成相关技术研发。",
+  "research_topics": [
+    "工业大模型",
+    "运维软件",
+    "数字孪生",
+    "算法生成"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

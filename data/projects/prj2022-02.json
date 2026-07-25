@@ -1,0 +1,29 @@
+{
+  "stable_id": "PRJ2022-02",
+  "title": "立式中速磨煤机顶部巡检预警智能化研究",
+  "start_date": "2022-06-01",
+  "end_date": "2023-12-31",
+  "display_period": "2022.06—2023.12",
+  "status": "已完成",
+  "status_key": "completed",
+  "project_type": "企业研发项目",
+  "project_level": "企业级",
+  "level_rank": 200,
+  "sort_key": "200|2022-06-01|PRJ2022-02",
+  "role": "技术负责人",
+  "role_group": "主持/负责",
+  "public_summary": "面向立式中速磨煤机巡检预警，开展巡检机器人、多传感系统和智能预警算法研发。",
+  "research_topics": [
+    "巡检机器人",
+    "多传感系统",
+    "智能预警",
+    "磨煤机"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

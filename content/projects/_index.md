@@ -1,17 +1,13 @@
 ---
 title: '科研项目 | Projects'
-date: 2026-07-18
+date: 2026-07-25
 type: landing
 
 sections:
-  - block: markdown
+  - block: project-feed
     content:
-      title: '科研项目 | Projects'
-      text: |
-        <div class="zw-empty-state">
-          <p>内容正在整理中。</p>
-          <p lang="en">Content is being updated.</p>
-        </div>
+      title: '科研项目'
+      subtitle: 'Research Projects'
     design:
       columns: '1'
 ---
