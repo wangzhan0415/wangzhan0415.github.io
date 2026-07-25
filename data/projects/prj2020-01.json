@@ -1,0 +1,29 @@
+{
+  "stable_id": "PRJ2020-01",
+  "title": "面向电厂环境的可见光通信定位一体化系统研究及应用",
+  "start_date": "2020-06-01",
+  "end_date": "2023-12-20",
+  "display_period": "2020.06—2023.12",
+  "status": "已完成",
+  "status_key": "completed",
+  "project_type": "企业研发项目",
+  "project_level": "集团级",
+  "level_rank": 300,
+  "sort_key": "300|2020-06-01|PRJ2020-01",
+  "role": "项目负责人",
+  "role_group": "主持",
+  "public_summary": "面向电厂人员定位与安全预警需求，开展可见光通信定位一体化系统和人员安全预警平台研发。",
+  "research_topics": [
+    "可见光通信",
+    "室内定位",
+    "安全预警",
+    "电厂"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

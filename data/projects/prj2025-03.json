@@ -1,0 +1,29 @@
+{
+  "stable_id": "PRJ2025-03",
+  "title": "基于生成模型和规则引导的工业负样本生成技术研究与应用",
+  "start_date": "2025-01-01",
+  "end_date": "2026-12-31",
+  "display_period": "2025.01—2026.12",
+  "status": "在研",
+  "status_key": "in-progress",
+  "project_type": "企业研发项目",
+  "project_level": "企业级",
+  "level_rank": 200,
+  "sort_key": "200|2025-01-01|PRJ2025-03",
+  "role": "技术负责人",
+  "role_group": "负责",
+  "public_summary": "面向工业视觉检测中的负样本生成需求，开展生成模型优化、规则引导和工业负样本生成方法研究。",
+  "research_topics": [
+    "生成模型",
+    "负样本生成",
+    "工业视觉",
+    "规则引导"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

@@ -1,0 +1,30 @@
+{
+  "stable_id": "PRJ2021-01",
+  "title": "高精度复合机器人整机研发及应用",
+  "start_date": "2021-01-01",
+  "end_date": "2023-12-31",
+  "display_period": "2021.01—2023.12",
+  "status": "已完成",
+  "status_key": "completed",
+  "project_type": "科研计划项目",
+  "project_program": "浙江省重点研发计划项目",
+  "project_level": "省部级",
+  "level_rank": 500,
+  "sort_key": "500|2021-01-01|PRJ2021-01",
+  "role": "项目负责人",
+  "role_group": "主持",
+  "public_summary": "面向高精度复合机器人研发与应用，开展整机及关键部件研发，并研究机器人控制与协同策略。",
+  "research_topics": [
+    "复合机器人",
+    "关键部件",
+    "协同控制",
+    "系统集成"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

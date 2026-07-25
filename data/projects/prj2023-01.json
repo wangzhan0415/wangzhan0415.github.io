@@ -1,0 +1,30 @@
+{
+  "stable_id": "PRJ2023-01",
+  "title": "基于动态环境信息理解的智能服务机器人研发及应用",
+  "start_date": "2023-01-01",
+  "end_date": "2025-12-31",
+  "display_period": "2023.01—2025.12",
+  "status": "已完成",
+  "status_key": "completed",
+  "project_type": "科研计划项目",
+  "project_program": "浙江省尖兵计划项目",
+  "project_level": "省部级",
+  "level_rank": 500,
+  "sort_key": "500|2023-01-01|PRJ2023-01",
+  "role": "课题负责人",
+  "role_group": "负责",
+  "public_summary": "面向动态环境中的智能服务机器人应用，开展多传感定位避障、光伏运维路径规划控制及应用验证。",
+  "research_topics": [
+    "服务机器人",
+    "多传感融合",
+    "定位避障",
+    "路径规划"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}
