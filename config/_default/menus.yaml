@@ -11,6 +11,9 @@ main:
   - name: 论文成果
     url: /publications/
     weight: 40
+  - name: 授权专利
+    url: /patents/
+    weight: 45
   - name: 科研项目
     url: /projects/
     weight: 50

@@ -1,0 +1,62 @@
+{{/* Local Hugo Blox block: dynamic granted-patent feed. */}}
+{{ partial "hbx/blocks/patent-feed/styles.html" . }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+{{ $patents := where site.RegularPages "Section" "patent" }}
+{{ $patents = where $patents ".Params.draft" "ne" true }}
+{{ $patents = sort (sort $patents ".Params.stable_id" "desc") ".Params.grant_date" "desc" }}
+{{ $first := where $patents ".Params.owner_role" "第一发明人" }}
+{{ $co := where $patents ".Params.owner_role" "共同发明人" }}
+{{ $years := slice }}{{ range $patents }}{{ $years = $years | append .Params.grant_year }}{{ end }}
+{{ $years = collections.Reverse (sort (uniq $years)) }}
+
+<section class="zw-patent-feed" data-patent-feed>
+  <div class="zw-patent-feed__panel">
+    <header class="zw-patent-feed__heading">
+      {{ with index $content "subtitle" }}<p class="zw-patent-feed__eyebrow">{{ . }}</p>{{ end }}
+      {{ with index $content "title" }}<h1>{{ . }}</h1>{{ end }}
+      <div class="zw-patent-feed__stats" aria-label="Patent statistics">
+        <span><strong>{{ len $patents }}</strong> 专利总数 / Total</span>
+        <span><strong>{{ len $first }}</strong> 第一发明人 / First Inventor</span>
+        <span><strong>{{ len $co }}</strong> 共同发明人 / Co-Inventor</span>
+      </div>
+    </header>
+
+    <div class="zw-patent-filter">
+      <div class="zw-patent-filter__roles" role="group" aria-label="按本人发明人角色筛选 / Filter by inventor role">
+        <button class="zw-patent-filter__button" type="button" data-patent-filter="all" aria-pressed="true">全部 / All</button>
+        <button class="zw-patent-filter__button" type="button" data-patent-filter="第一发明人" aria-pressed="false">第一发明人 / First Inventor</button>
+        <button class="zw-patent-filter__button" type="button" data-patent-filter="共同发明人" aria-pressed="false">共同发明人 / Co-Inventor</button>
+      </div>
+      <label class="zw-patent-filter__year">授权年份 / Grant Year
+        <select data-patent-year>
+          <option value="all">全部年份 / All Years</option>
+          {{ range $years }}<option value="{{ . }}">{{ . }}</option>{{ end }}
+        </select>
+      </label>
+    </div>
+    <p class="zw-patent-feed__status" data-patent-status aria-live="polite">当前显示 {{ len $patents }} 件专利 / Showing {{ len $patents }} patents.</p>
+
+    <div class="zw-patent-list">
+      {{ range $patents }}
+        <article class="zw-patent-card" data-patent-card data-owner-role="{{ .Params.owner_role }}" data-grant-year="{{ .Params.grant_year }}">
+          <h2 class="zw-patent-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <div class="zw-patent-card__badges"><span>{{ .Params.patent_type }}</span><span>{{ .Params.owner_role }} / {{ if eq .Params.owner_role "第一发明人" }}First Inventor{{ else }}Co-Inventor{{ end }}</span></div>
+          <dl class="zw-patent-card__meta">
+            <div><dt>授权公告日 / Grant Date</dt><dd>{{ .Params.grant_date }}</dd></div>
+            <div class="zw-patent-card__number"><dt>专利号 / Patent Number</dt><dd>{{ .Params.patent_number }}</dd></div>
+            <div class="zw-patent-card__number"><dt>授权公告号 / Grant Publication No.</dt><dd>{{ .Params.grant_publication_number }}</dd></div>
+          </dl>
+          <p class="zw-patent-card__inventors"><strong class="zw-patent-card__label">发明人 / Inventors:</strong>
+            {{ range $index, $inventor := .Params.inventors }}{{ if $index }}<span aria-hidden="true"> · </span>{{ end }}{{ if eq $inventor "王战" }}<strong class="zw-patent-card__owner">{{ $inventor }}</strong>{{ else }}<span>{{ $inventor }}</span>{{ end }}{{ end }}
+          </p>
+          <div class="zw-patent-card__patentees"><strong class="zw-patent-card__label">专利权人 / Patentees:</strong><ul>{{ range .Params.patentees }}<li>{{ . }}</li>{{ end }}</ul></div>
+          <div class="zw-patent-card__actions"><a class="zw-patent-card__view" href="{{ .RelPermalink }}">查看详情 <span lang="en">View details</span> <span aria-hidden="true">→</span></a></div>
+        </article>
+      {{ end }}
+    </div>
+    <p class="zw-patent-feed__empty" data-patent-empty hidden>没有符合当前筛选条件的专利。<br><span lang="en">No patents match the selected filters.</span></p>
+  </div>
+</section>
+{{ with resources.Get "js/patent-filter.js" }}{{ $js := . | minify | fingerprint }}<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>{{ end }}
