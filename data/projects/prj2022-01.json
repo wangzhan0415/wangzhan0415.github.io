@@ -1,0 +1,30 @@
+{
+  "stable_id": "PRJ2022-01",
+  "title": "翻车机摘复钩智能化研究",
+  "start_date": "2022-06-01",
+  "end_date": "2024-06-30",
+  "display_period": "2022.06—2024.06",
+  "status": "已完成",
+  "status_key": "completed",
+  "project_type": "示范应用项目",
+  "project_program": "首台（套）示范应用项目",
+  "project_level": "省部级",
+  "level_rank": 500,
+  "sort_key": "500|2022-06-01|PRJ2022-01",
+  "role": "项目负责人",
+  "role_group": "主持/负责",
+  "public_summary": "面向翻车机摘复钩作业智能化，开展机器人系统研发集成、导航控制和工程化应用验证。",
+  "research_topics": [
+    "摘复钩机器人",
+    "导航控制",
+    "多机协同",
+    "示范应用"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

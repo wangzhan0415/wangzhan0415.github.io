@@ -1,0 +1,30 @@
+{
+  "stable_id": "PRJ2026-02",
+  "title": "工业复杂场景下小样本多模态视觉检测理论方法和关键技术研究及具身智能应用示范",
+  "start_date": "2026-01-01",
+  "end_date": "2027-12-31",
+  "display_period": "2026.01—2027.12",
+  "status": "在研",
+  "status_key": "in-progress",
+  "project_type": "科研计划项目",
+  "project_program": "浙江省领雁计划项目",
+  "project_level": "省部级",
+  "level_rank": 500,
+  "sort_key": "500|2026-01-01|PRJ2026-02",
+  "role": "课题负责人",
+  "role_group": "主持/负责",
+  "public_summary": "面向工业复杂场景的小样本多模态视觉检测，开展缺陷检测算法、边缘推理与系统集成研究，并推进具身智能应用示范。",
+  "research_topics": [
+    "多模态视觉",
+    "小样本学习",
+    "缺陷检测",
+    "具身智能"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

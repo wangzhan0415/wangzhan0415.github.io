@@ -1,0 +1,29 @@
+{
+  "stable_id": "PRJ2020-06",
+  "title": "便携式水下应急救援关键技术与装备研发",
+  "start_date": "2020-11-01",
+  "end_date": "2023-10-31",
+  "display_period": "2020.11—2023.10",
+  "status": "已完成",
+  "status_key": "completed",
+  "project_type": "科研计划项目",
+  "project_level": "国家级",
+  "level_rank": 600,
+  "sort_key": "600|2020-11-01|PRJ2020-06",
+  "role": "子课题负责人",
+  "role_group": "主持/负责",
+  "public_summary": "面向水下应急救援场景，开展水下图像增强、机械臂控制及整机外场测试研究，支撑便携式水下应急救援装备研发与验证。",
+  "research_topics": [
+    "水下机器人",
+    "图像增强",
+    "机械臂控制",
+    "应急救援"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

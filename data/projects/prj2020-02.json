@@ -1,0 +1,29 @@
+{
+  "stable_id": "PRJ2020-02",
+  "title": "能源领域机器人系统技术研究与应用",
+  "start_date": "2020-06-01",
+  "end_date": "2023-11-30",
+  "display_period": "2020.06—2023.11",
+  "status": "已完成",
+  "status_key": "completed",
+  "project_type": "企业研发项目",
+  "project_level": "集团级",
+  "level_rank": 300,
+  "sort_key": "300|2020-06-01|PRJ2020-02",
+  "role": "项目负责人",
+  "role_group": "主持",
+  "public_summary": "面向能源生产场景，开展巡检机器人系统研发集成、多传感感知算法和应用验证。",
+  "research_topics": [
+    "能源机器人",
+    "巡检机器人",
+    "多传感感知",
+    "系统集成"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

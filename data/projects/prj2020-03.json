@@ -1,0 +1,29 @@
+{
+  "stable_id": "PRJ2020-03",
+  "title": "物联网设备OPC-UA通信网络架构、技术与应用",
+  "start_date": "2020-06-01",
+  "end_date": "2023-12-31",
+  "display_period": "2020.06—2023.12",
+  "status": "已完成",
+  "status_key": "completed",
+  "project_type": "企业研发项目",
+  "project_level": "集团级",
+  "level_rank": 300,
+  "sort_key": "300|2020-06-01|PRJ2020-03",
+  "role": "核心骨干",
+  "role_group": "参与",
+  "public_summary": "面向物联网设备互联，开展OPC UA系统开发、输煤设备数据融合和通信网络架构设计。",
+  "research_topics": [
+    "OPC UA",
+    "物联网",
+    "数据融合",
+    "通信架构"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

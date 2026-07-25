@@ -1,0 +1,67 @@
+{{/* Local Hugo Blox block: reviewed research project feed */}}
+{{ partial "hbx/blocks/project-feed/styles.html" . }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+
+{{ $projects := slice }}
+{{ range $key, $project := site.Data.projects }}
+  {{ if and
+      (eq ($project.visibility | default "") "public-summary")
+      (eq ($project.disclosure_status | default "") "approved")
+      (ne ($project.draft | default false) true)
+    }}
+    {{ $projects = $projects | append $project }}
+  {{ end }}
+{{ end }}
+{{ $projects = sort $projects "sort_key" "desc" }}
+{{ $inProgress := where $projects "status_key" "in-progress" }}
+{{ $completed := where $projects "status_key" "completed" }}
+
+<section class="zw-project-feed" data-project-feed data-total-count="{{ len $projects }}" data-in-progress-count="{{ len $inProgress }}" data-completed-count="{{ len $completed }}">
+  <div class="zw-project-feed__panel">
+    <header class="zw-project-feed__heading">
+      {{ with index $content "subtitle" }}<p class="zw-project-feed__eyebrow">{{ . }}</p>{{ end }}
+      {{ with index $content "title" }}<h1>{{ . }}</h1>{{ end }}
+    </header>
+
+    <div class="zw-project-filter" role="group" aria-label="Filter projects by status">
+      <button class="zw-project-filter__button" type="button" data-project-filter="all" aria-pressed="true">
+        <span class="zw-project-filter__label">全部 <span lang="en">All</span></span><span class="zw-project-filter__count">{{ len $projects }}</span>
+      </button>
+      <button class="zw-project-filter__button" type="button" data-project-filter="in-progress" aria-pressed="false">
+        <span class="zw-project-filter__label">在研 <span lang="en">In Progress</span></span><span class="zw-project-filter__count">{{ len $inProgress }}</span>
+      </button>
+      <button class="zw-project-filter__button" type="button" data-project-filter="completed" aria-pressed="false">
+        <span class="zw-project-filter__label">已完成 <span lang="en">Completed</span></span><span class="zw-project-filter__count">{{ len $completed }}</span>
+      </button>
+    </div>
+
+    <p class="zw-project-feed__status" data-project-status-text aria-live="polite">Showing all {{ len $projects }} projects.</p>
+    <div class="zw-project-list">
+      {{ range $projects }}
+        <article class="zw-project-card" data-project-card data-project-status="{{ .status_key }}">
+          <h3 class="zw-project-card__title">{{ .title }}</h3>
+          <div class="zw-project-card__badges">
+            <span class="zw-project-card__level">{{ .project_level }}</span>
+            <span class="zw-project-card__type">{{ .project_type }}</span>
+            <span class="zw-project-card__status zw-project-card__status--{{ .status_key }}">{{ .status }}</span>
+          </div>
+          <p class="zw-project-card__meta"><span>项目时间</span> {{ .display_period }}</p>
+          {{ with .project_program }}<p class="zw-project-card__program"><span>项目来源/计划</span> {{ . }}</p>{{ end }}
+          <p class="zw-project-card__role"><span>本人角色</span> {{ .role }}</p>
+          <div class="zw-project-card__summary"><strong>主要研究内容</strong><p>{{ .public_summary }}</p></div>
+          <div class="zw-project-card__topics" aria-label="研究方向">
+            {{ range .research_topics }}<span class="zw-project-card__topic">{{ . }}</span>{{ end }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+    <p class="zw-project-feed__empty" data-project-empty hidden>未找到符合当前条件的项目。<br><span lang="en">No projects found for this filter.</span></p>
+  </div>
+</section>
+
+{{ with resources.Get "js/project-filter.js" }}
+  {{ $js := . | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ end }}

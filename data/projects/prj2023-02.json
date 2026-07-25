@@ -1,0 +1,30 @@
+{
+  "stable_id": "PRJ2023-02",
+  "title": "复杂地形特种作业机器人研发与应用",
+  "start_date": "2023-01-01",
+  "end_date": "2025-12-31",
+  "display_period": "2023.01—2025.12",
+  "status": "已完成",
+  "status_key": "completed",
+  "project_type": "科研计划项目",
+  "project_program": "浙江省尖兵计划项目",
+  "project_level": "省部级",
+  "level_rank": 500,
+  "sort_key": "500|2023-01-01|PRJ2023-02",
+  "role": "课题负责人",
+  "role_group": "负责",
+  "public_summary": "面向复杂地形特种作业场景，开展足臂机器人平台集成测试及能源场景自主作业应用验证与示范。",
+  "research_topics": [
+    "特种作业机器人",
+    "足臂机器人",
+    "自主作业",
+    "能源场景"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}

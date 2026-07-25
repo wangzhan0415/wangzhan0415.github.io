@@ -1,0 +1,29 @@
+{
+  "stable_id": "PRJ2025-02",
+  "title": "机器人多传感器感知装置标准化设计与研制",
+  "start_date": "2025-01-01",
+  "end_date": "2026-12-31",
+  "display_period": "2025.01—2026.12",
+  "status": "在研",
+  "status_key": "in-progress",
+  "project_type": "企业研发项目",
+  "project_level": "企业级",
+  "level_rank": 200,
+  "sort_key": "200|2025-01-01|PRJ2025-02",
+  "role": "技术负责人",
+  "role_group": "负责",
+  "public_summary": "面向机器人多传感感知装置标准化，开展装置架构设计和云台系统研发。",
+  "research_topics": [
+    "多传感器",
+    "感知装置",
+    "云台系统",
+    "标准化设计"
+  ],
+  "visibility": "public-summary",
+  "disclosure_status": "approved",
+  "show_detail": false,
+  "featured": false,
+  "draft": false,
+  "metadata_status": "manually-reviewed",
+  "metadata_retrieved_at": "2026-07-25"
+}
