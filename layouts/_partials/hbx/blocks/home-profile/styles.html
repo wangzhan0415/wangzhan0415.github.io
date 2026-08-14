@@ -1,0 +1,82 @@
+<style>
+  .zw-home-profile {
+    padding: clamp(2rem, 5vw, 4.5rem) 0;
+    background-color: #f4f7fb;
+    background-image: linear-gradient(rgba(37, 99, 235, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, .035) 1px, transparent 1px);
+    background-size: 28px 28px;
+    color: #1e293b;
+  }
+  .zw-home-profile .zw-home-profile__panel {
+    position: relative;
+    width: min(calc(100% - 32px), 1040px);
+    margin-inline: auto;
+    overflow: hidden;
+    padding: clamp(1.5rem, 4vw, 3.5rem);
+    border: 1px solid rgba(71, 85, 105, .16);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 14px 38px rgba(15, 23, 42, .07);
+  }
+  .zw-home-profile .zw-home-profile__panel::before {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #0891b2);
+    content: "";
+  }
+  .zw-home-profile .zw-home-profile__hero { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 2rem; align-items: center; }
+  .zw-home-profile .zw-home-profile__avatar { width: 160px; height: 160px; object-fit: cover; border: 1px solid rgba(71, 85, 105, .2); border-radius: 50%; }
+  .zw-home-profile .zw-home-profile__identity h1 { margin: 0; color: #0f172a; font-size: clamp(2rem, 4vw, 2.35rem); line-height: 1.15; letter-spacing: -.025em; }
+  .zw-home-profile .zw-home-profile__alternate { margin: .45rem 0 0; color: #475569; font-size: 1.125rem; }
+  .zw-home-profile .zw-home-profile__role { margin: .8rem 0 0; color: #1d4ed8; font-size: 1.0625rem; font-weight: 650; }
+  .zw-home-profile .zw-home-profile__affiliations { display: grid; gap: .2rem; margin-top: .45rem; color: #475569; font-size: .98rem; }
+  .zw-home-profile .zw-home-profile__affiliations a { color: inherit; }
+  .zw-home-profile .zw-home-profile__links { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1rem; }
+  .zw-home-profile .zw-home-profile__links a { padding: .38rem .75rem; border: 1px solid rgba(37, 99, 235, .22); border-radius: 999px; color: #1d4ed8; font-size: .9rem; font-weight: 600; line-height: 1.25; text-decoration: none; }
+  .zw-home-profile .zw-home-profile__links a:hover { border-color: #2563eb; background: #eff6ff; }
+  .zw-home-profile .zw-home-profile__links a:focus-visible { outline: 3px solid rgba(37, 99, 235, .35); outline-offset: 3px; }
+  .zw-home-profile .zw-home-profile__sections { margin-top: clamp(2.5rem, 6vw, 4.5rem); }
+  .zw-home-profile .zw-home-profile__section { padding: clamp(1.5rem, 3vw, 2.2rem) 0; border-top: 1px solid rgba(71, 85, 105, .14); }
+  .zw-home-profile .zw-home-profile__section-heading { margin-bottom: 1.15rem; }
+  .zw-home-profile .zw-home-profile__section-heading p { margin: 0 0 .25rem; color: #0284c7; font-size: .76rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .zw-home-profile .zw-home-profile__section-heading h2 { margin: 0; color: #0f172a; font-size: clamp(1.35rem, 3vw, 1.5rem); line-height: 1.3; }
+  .zw-home-profile .zw-home-profile__bio { max-width: 72ch; font-size: 1.04rem; line-height: 1.8; text-align: justify; text-align-last: left; }
+  .zw-home-profile .zw-home-profile__bio p { margin: 0 0 1rem; }
+  .zw-home-profile .zw-home-profile__bio p:last-child { margin-bottom: 0; }
+  .zw-home-profile .zw-home-profile__interests { display: flex; flex-wrap: wrap; gap: .7rem; margin: 0; padding: 0; list-style: none; }
+  .zw-home-profile .zw-home-profile__interest { padding: .55rem .85rem; border: 1px solid rgba(14, 116, 144, .2); border-radius: 6px; background: #f0f9ff; color: #164e63; font-size: .96rem; line-height: 1.45; }
+  .zw-home-profile .zw-home-profile__awards,
+  .zw-home-profile .zw-home-profile__appointments { padding-bottom: .65rem; }
+  .zw-home-profile .zw-home-profile__records { display: grid; gap: .85rem; }
+  .zw-home-profile .zw-home-profile__record { padding-left: 1rem; border-left: 2px solid #0ea5e9; }
+  .zw-home-profile .zw-home-profile__record h3,
+  .zw-home-profile .zw-home-profile__record p { margin: 0; }
+  .zw-home-profile .zw-home-profile__record-meta,
+  .zw-home-profile .zw-home-profile__record-date { color: #64748b; }
+  .dark .zw-home-profile { background-color: #0b1120; background-image: linear-gradient(rgba(56, 189, 248, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, .04) 1px, transparent 1px); color: #dbe5f1; }
+  .dark .zw-home-profile .zw-home-profile__panel { border-color: rgba(148, 163, 184, .2); background: #111827; box-shadow: 0 14px 38px rgba(0, 0, 0, .22); }
+  .dark .zw-home-profile .zw-home-profile__identity h1,
+  .dark .zw-home-profile .zw-home-profile__section-heading h2 { color: #f8fafc; }
+  .dark .zw-home-profile .zw-home-profile__alternate,
+  .dark .zw-home-profile .zw-home-profile__affiliations,
+  .dark .zw-home-profile .zw-home-profile__record-meta,
+  .dark .zw-home-profile .zw-home-profile__record-date { color: #b9c7d8; }
+  .dark .zw-home-profile .zw-home-profile__role { color: #7dd3fc; }
+  .dark .zw-home-profile .zw-home-profile__section { border-color: rgba(148, 163, 184, .18); }
+  .dark .zw-home-profile .zw-home-profile__section-heading p { color: #38bdf8; }
+  .dark .zw-home-profile .zw-home-profile__links a { border-color: rgba(125, 211, 252, .35); color: #bae6fd; }
+  .dark .zw-home-profile .zw-home-profile__links a:hover { border-color: #7dd3fc; background: rgba(14, 116, 144, .2); }
+  .dark .zw-home-profile .zw-home-profile__interest { border-color: rgba(103, 232, 249, .22); background: rgba(14, 116, 144, .15); color: #cffafe; }
+  @media (max-width: 720px) {
+    .zw-home-profile .zw-home-profile__hero { grid-template-columns: 1fr; gap: 1.25rem; }
+    .zw-home-profile .zw-home-profile__avatar { width: 140px; height: 140px; }
+  }
+  @media (max-width: 480px) {
+    .zw-home-profile .zw-home-profile__panel { width: min(calc(100% - 20px), 1040px); padding: 1.25rem; }
+    .zw-home-profile .zw-home-profile__avatar { width: 120px; height: 120px; }
+    .zw-home-profile .zw-home-profile__identity h1 { font-size: 1.8rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .zw-home-profile *, .zw-home-profile *::before, .zw-home-profile *::after { scroll-behavior: auto !important; transition: none !important; }
+  }
+</style>

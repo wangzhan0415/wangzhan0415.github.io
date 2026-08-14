@@ -2,24 +2,18 @@ main:
   - name: 首页
     url: /
     weight: 10
-  - name: 个人简介
-    url: /about/
-    weight: 20
-  - name: 研究方向
-    url: /research/
-    weight: 30
   - name: 论文成果
     url: /publications/
-    weight: 40
+    weight: 20
   - name: 授权专利
     url: /patents/
-    weight: 45
+    weight: 30
   - name: 科研项目
     url: /projects/
-    weight: 50
+    weight: 40
   - name: 完整履历
     url: /experience/
-    weight: 60
+    weight: 50
   - name: 奖项荣誉
     url: /awards/
-    weight: 70
+    weight: 60

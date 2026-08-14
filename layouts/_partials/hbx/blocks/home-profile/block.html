@@ -1,0 +1,113 @@
+{{/* Local Hugo Blox block: homepage profile sourced exclusively from author data. */}}
+{{ partial "hbx/blocks/home-profile/styles.html" . }}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+{{ $username := index $content "username" | default "me" }}
+{{ $profile := index site.Data.authors $username }}
+
+{{ if $profile }}
+  {{ $name := $profile.name | default dict }}
+  {{ $homepage := $profile.homepage | default dict }}
+  {{ $displayName := index $name "display" | default (index $name "alternate") }}
+  {{ $avatar := resources.Get (printf "media/authors/%s.png" $username) }}
+  <section class="zw-home-profile">
+    <div class="zw-home-profile__panel">
+      <header class="zw-home-profile__hero">
+        {{ with $avatar }}
+          <img class="zw-home-profile__avatar" src="{{ .RelPermalink }}" width="160" height="160" alt="{{ $displayName }}">
+        {{ end }}
+        <div class="zw-home-profile__identity">
+          {{ with $displayName }}<h1>{{ . }}</h1>{{ end }}
+          {{ with index $name "alternate" }}<p class="zw-home-profile__alternate">{{ . }}</p>{{ end }}
+          {{ with $profile.role }}<p class="zw-home-profile__role">{{ . }}</p>{{ end }}
+          {{ with $profile.affiliations }}
+            <div class="zw-home-profile__affiliations">
+              {{ range . }}
+                {{ if reflect.IsMap . }}
+                  {{ $affiliationName := index . "name" }}
+                  {{ with index . "url" }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ $affiliationName }}</a>{{ else }}<span>{{ $affiliationName }}</span>{{ end }}
+                {{ else }}<span>{{ . }}</span>{{ end }}
+              {{ end }}
+            </div>
+          {{ end }}
+          {{ with $profile.links }}
+            <nav class="zw-home-profile__links" aria-label="Profile links">
+              {{ range . }}
+                {{ if reflect.IsMap . }}
+                  {{ $url := index . "url" }}
+                  {{ $linkName := index . "label" | default (index . "name") }}
+                  {{ with $url }}<a href="{{ . }}" aria-label="{{ $linkName }}"{{ if not (hasPrefix . "mailto:") }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ $linkName }}</a>{{ end }}
+                {{ end }}
+              {{ end }}
+            </nav>
+          {{ end }}
+        </div>
+      </header>
+
+      <div class="zw-home-profile__sections">
+        <section id="about" class="zw-home-profile__section">
+          <header class="zw-home-profile__section-heading">
+            {{ with index $homepage "about_subtitle" }}<p>{{ . }}</p>{{ end }}
+            {{ with index $homepage "about_title" }}<h2>{{ . }}</h2>{{ end }}
+          </header>
+          {{ with $profile.bio }}<div class="zw-home-profile__bio">{{ . | markdownify }}</div>{{ end }}
+        </section>
+
+        <section id="research" class="zw-home-profile__section">
+          <header class="zw-home-profile__section-heading">
+            {{ with index $homepage "research_subtitle" }}<p>{{ . }}</p>{{ end }}
+            {{ with index $homepage "research_title" }}<h2>{{ . }}</h2>{{ end }}
+          </header>
+          {{ with $profile.interests }}<ul class="zw-home-profile__interests">{{ range . }}<li class="zw-home-profile__interest">{{ . }}</li>{{ end }}</ul>{{ end }}
+        </section>
+
+        <section id="awards" class="zw-home-profile__section zw-home-profile__awards">
+          <header class="zw-home-profile__section-heading">
+            {{ with index $homepage "awards_subtitle" }}<p>{{ . }}</p>{{ end }}
+            {{ with index $homepage "awards_title" }}<h2>{{ . }}</h2>{{ end }}
+          </header>
+          {{ with $profile.awards }}
+            <div class="zw-home-profile__records">
+              {{ range . }}
+                <article class="zw-home-profile__record">
+                  {{ if reflect.IsMap . }}
+                    {{ with index . "title" }}<h3>{{ . }}</h3>{{ end }}
+                    {{ with (index . "awarder" | default (index . "organization")) }}<p class="zw-home-profile__record-meta">{{ . }}</p>{{ end }}
+                    {{ with index . "date" }}<p class="zw-home-profile__record-date">{{ . }}</p>{{ end }}
+                    {{ with index . "summary" }}<div>{{ . | markdownify }}</div>{{ end }}
+                  {{ else }}<p>{{ . }}</p>{{ end }}
+                </article>
+              {{ end }}
+            </div>
+          {{ end }}
+        </section>
+
+        <section id="appointments" class="zw-home-profile__section zw-home-profile__appointments">
+          <header class="zw-home-profile__section-heading">
+            {{ with index $homepage "appointments_subtitle" }}<p>{{ . }}</p>{{ end }}
+            {{ with index $homepage "appointments_title" }}<h2>{{ . }}</h2>{{ end }}
+          </header>
+          {{ with $profile.appointments }}
+            <div class="zw-home-profile__records">
+              {{ range . }}
+                {{ if reflect.IsMap . }}
+                  {{ $appointment := . }}
+                  <article class="zw-home-profile__record">
+                    {{ with index . "role" }}<h3>{{ . }}</h3>{{ end }}
+                    {{ with index . "org" }}<p class="zw-home-profile__record-meta">{{ . }}</p>{{ end }}
+                    {{ with index . "start" }}<p class="zw-home-profile__record-date">{{ . }} – {{ index $appointment "end" | default "至今 / Present" }}</p>{{ end }}
+                    {{ with index . "summary" }}<div>{{ . | markdownify }}</div>{{ end }}
+                  </article>
+                {{ else }}<article class="zw-home-profile__record"><p>{{ . }}</p></article>{{ end }}
+              {{ end }}
+            </div>
+          {{ end }}
+        </section>
+      </div>
+    </div>
+  </section>
+{{ else }}
+  <!-- Home profile data is unavailable. -->
+{{ end }}
