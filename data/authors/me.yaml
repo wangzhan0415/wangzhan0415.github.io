@@ -86,8 +86,130 @@ experience:
     summary: 新一代信息技术技术开发
 skills: []
 languages: []
-awards: []
-appointments: []
+awards:
+  - title: 吴文俊人工智能科学技术奖
+    organization: 中国人工智能学会
+    date: '2026-03-20'
+    grade: 二等奖
+    project: 面向智能运维的异构无人系统感知与优化调度技术
+    rank: '3/15'
+  - title: 科技进步奖
+    organization: 中国安全生产协会
+    date: '2025-12-19'
+    grade: 一等奖
+    project: 高危燃爆场景智能安全防控与应急处置技术装备研发应用
+    rank: '5/15'
+  - title: 科技创新奖
+    organization: 中国科技产业化促进会
+    date: '2025-10-01'
+    grade: 一等奖
+    project: 空潜立体协同智能监测机器人系统关键技术研究及应用
+    rank: '5/15'
+  - title: 浙江能源数据创新应用大赛
+    organization: 浙江省电力学会
+    date: '2025-10-01'
+    grade: 一等奖
+    project: 面向运维决策的多维风机出力预测与渗漏油视觉检测方法研究
+    rank: '5/5'
+  - title: 科技进步奖
+    organization: 中国腐蚀控制技术协会
+    date: '2025-06-01'
+    grade: 二等奖
+    project: 化工厂取水口异物安全监测关键技术及应急设备研发
+    rank: '8/8'
+  - title: 科学技术奖
+    organization: 浙江省应急与安全科学技术学会
+    date: '2024-12-01'
+    grade: 二等奖
+    project: 易燃易爆区无人化安全监测与应急处置关键技术及装备研发
+    rank: '4/9'
+  - title: 2024年度电力机器人（无人机）专业优秀科技论文
+    date: '2024-12-01'
+    grade: 二等奖
+    project: 基于多源融合的地空一体全域智能巡视系统研究与设计
+    rank: '2/5'
+  - title: 科技创新奖
+    organization: 中国科技产业化促进会
+    date: '2024-10-01'
+    grade: 一等奖
+    project: 面向水电站的水下仿生机器人巡检运维关键技术及应用
+    rank: '6/10'
+  - title: 全国能源化学地质系统优秀职工技术创新成果
+    date: '2024-01-01'
+    grade: 二等奖
+    project: 电厂智能巡检机器人系统
+    rank: '2/5'
+  - title: 钱江能源科学技术奖
+    date: '2023-01-01'
+    grade: 三等奖
+    project: 火电厂封闭煤棚自巡追踪降温应急系统
+    rank: '3/10'
+  - title: 全国青年职业技能大赛--“中核杯”创新创新竞赛
+    date: '2022-11-01'
+    grade: 铜奖
+    project: 发电厂智能巡检机器人优化创新设计
+    rank: '2/6'
+  - title: “浙能杯”创新创效大赛科创项目竞赛
+    date: '2021-06-18'
+    grade: 二等奖
+    project: 基于机器人技术的煤质工业分析智能化研究与应用
+    rank: '3/12'
+  - title: 优秀论文奖
+    date: '2021-05-10'
+    grade: 二等奖
+    project: 面向焊接过程的智能焊接监测系统的设计与实现
+    rank: '9/9'
+appointments:
+  - role: 副院长
+    org: 浙江省浙能工业信息工程省级重点企业研究院
+    start: '2025-08'
+    end: ''
+    summary: 负责工业信息化与能源数智化方向科研规划、项目管理、技术攻关及成果转化推进。
+  - role: 专家库专家
+    org: 杭州市科学技术局
+    start: '2025-05'
+    end: '2030-05'
+    summary: 为杭州市科技管理活动提供专业智力支持，包括科技评审、咨询、论证、评估、评价等工作。
+  - role: 秘书长
+    org: 浙江省机器人产业发展协会--能源机器人推进委员会
+    start: '2024-10'
+    end: '2029-10'
+    summary: 负责组织实施推委会年度工作计划，协调产学研用各方资源，推动能源机器人技术研发、标准制定和产业应用等工作。
+  - role: 标准化工作委员会专家委员
+    org: 中国科技产业化促进会
+    start: '2024-08'
+    end: '2027-08'
+    summary: 参与标准化工作，为相关标准的立项、评估、发布等提供专业咨询和指导意见。
+  - role: 客座编辑
+    org: Electronics（SCI期刊）
+    start: '2024-06'
+    end: ''
+    summary: 负责特刊从策划到出版全流程的学术工作，包括稿件征集、同行评审等。
+  - role: 研究生企业导师
+    org: 西北工业大学
+    start: '2024-05'
+    end: '2029-05'
+    summary: 负责研究生专业实践能力培养，提供专业实践或学术交流机会，并协助校内导师开展研究生培养和学位论文指导。
+  - role: 专家委员
+    org: 中国机电一体化技术应用协会
+    start: '2023-12'
+    end: '2028-12'
+    summary: 为行业会员单位提供成果评价、资质评价、团体标准、质量品牌、行业研究报告等专业服务。
+  - role: 专家委员
+    org: 浙江省电力学会电力机器人（无人机）专业委员会
+    start: '2023-06'
+    end: '2026-06'
+    summary: 参与相关领域科技论证、咨询、科技成果鉴定、科技文献编审及标准制定等工作。
+  - role: 期刊编委
+    org: SCIREA Journal of Computer
+    start: '2019-05'
+    end: '2024-02'
+    summary: 协助期刊编辑部审阅疑难或重点稿件，并推荐优秀稿件。
+  - role: 审稿专家
+    org: Multidisciplinary Digital Publishing Institute
+    start: '2019-03'
+    end: ''
+    summary: 为出版社旗下Sensors、Applied Sciences等SCI期刊提供专业审稿意见。
 homepage:
   about_title: '个人简介'
   about_subtitle: 'About'
