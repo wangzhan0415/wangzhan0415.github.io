@@ -74,8 +74,16 @@
                 <article class="zw-home-profile__record">
                   {{ if reflect.IsMap . }}
                     {{ with index . "title" }}<h3>{{ . }}</h3>{{ end }}
-                    {{ with (index . "awarder" | default (index . "organization")) }}<p class="zw-home-profile__record-meta">{{ . }}</p>{{ end }}
+                    {{ $organization := index . "awarder" | default (index . "organization") }}
+                    {{ $grade := index . "grade" }}
+                    {{ if or $organization $grade }}
+                      <p class="zw-home-profile__record-meta">
+                        {{ with $organization }}{{ . }}{{ end }}{{ if and $organization $grade }} · {{ end }}{{ with $grade }}{{ . }}{{ end }}
+                      </p>
+                    {{ end }}
                     {{ with index . "date" }}<p class="zw-home-profile__record-date">{{ . }}</p>{{ end }}
+                    {{ with index . "project" }}<p>{{ . }}</p>{{ end }}
+                    {{ with index . "rank" }}<p class="zw-home-profile__record-meta">排名 {{ . }}</p>{{ end }}
                     {{ with index . "summary" }}<div>{{ . | markdownify }}</div>{{ end }}
                   {{ else }}<p>{{ . }}</p>{{ end }}
                 </article>
