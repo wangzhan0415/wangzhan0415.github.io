@@ -1,5 +1,130 @@
 {{/* Local Hugo Blox block: homepage profile sourced exclusively from author data. */}}
 {{ partial "hbx/blocks/home-profile/styles.html" . }}
+<style>
+  .zw-home-profile .zw-home-profile__links {
+    gap: .78rem;
+    margin-top: 1.25rem;
+  }
+
+  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    min-height: 58px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(76, 112, 160, .22);
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(255,255,255,.9), rgba(239,246,255,.72));
+    color: #334e6f;
+    box-shadow: 0 8px 24px rgba(30,64,110,.08), inset 0 1px 0 rgba(255,255,255,.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, color .16s ease, background .16s ease;
+  }
+
+  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link::before {
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(59,130,246,.08);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+  }
+
+  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link::after {
+    position: absolute;
+    top: 5px;
+    right: 11px;
+    left: 11px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,0));
+    content: "";
+    pointer-events: none;
+  }
+
+  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link:hover {
+    transform: translateY(-3px);
+    border-color: rgba(59,130,246,.38);
+    background: linear-gradient(145deg, rgba(247,251,255,.98), rgba(226,239,255,.92));
+    color: #1d4ed8;
+    box-shadow: 0 12px 30px rgba(50,110,180,.16), 0 0 0 1px rgba(79,140,220,.08), 0 0 22px rgba(78,139,211,.09);
+  }
+
+  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link:active {
+    transform: translateY(-1px) scale(.98);
+  }
+
+  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link:focus-visible {
+    outline: 3px solid rgba(37,99,235,.3);
+    outline-offset: 4px;
+  }
+
+  .zw-home-profile .zw-home-profile__social-icon {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    width: 23px;
+    height: 23px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .zw-home-profile .zw-home-profile__social-icon svg {
+    display: block;
+    width: 23px;
+    height: 23px;
+  }
+
+  .zw-home-profile .zw-home-profile__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .dark .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link {
+    border-color: rgba(130,175,225,.2);
+    background: linear-gradient(145deg, rgba(25,38,56,.94), rgba(16,28,44,.82));
+    color: #c9dcf2;
+    box-shadow: 0 9px 24px rgba(0,0,0,.2), inset 0 1px 0 rgba(148,163,184,.08);
+  }
+
+  .dark .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link::before {
+    border-color: rgba(125,211,252,.1);
+  }
+
+  .dark .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link::after {
+    background: linear-gradient(180deg, rgba(186,230,253,.11), rgba(186,230,253,0));
+  }
+
+  .dark .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link:hover {
+    border-color: rgba(125,211,252,.46);
+    background: linear-gradient(145deg, rgba(30,48,70,.97), rgba(20,38,58,.9));
+    color: #7dd3fc;
+    box-shadow: 0 12px 30px rgba(0,0,0,.28), 0 0 24px rgba(56,189,248,.1);
+  }
+
+  @media (max-width: 600px) {
+    .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link {
+      width: 52px;
+      height: 52px;
+      min-height: 52px;
+    }
+
+    .zw-home-profile .zw-home-profile__social-icon,
+    .zw-home-profile .zw-home-profile__social-icon svg {
+      width: 21px;
+      height: 21px;
+    }
+  }
+</style>
 {{ $block := .wcBlock }}
 {{ $content := $block.content }}
 {{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
@@ -43,13 +168,40 @@
             {{ end }}
 
             {{ with $profile.links }}
-              <nav class="zw-home-profile__links" aria-label="Profile links">
+              <nav class="zw-home-profile__links" aria-label="Academic and professional profiles">
                 {{ range . }}
                   {{ if reflect.IsMap . }}
                     {{ $url := index . "url" }}
                     {{ $linkName := index . "label" | default (index . "name") }}
+                    {{ $urlString := printf "%s" $url }}
+                    {{ $lookup := lower (printf "%s %s" $linkName $urlString) }}
+                    {{ $iconType := "link" }}
+                    {{ if or (hasPrefix (lower $urlString) "mailto:") (in $lookup "email") (in $lookup "mail") }}
+                      {{ $iconType = "email" }}
+                    {{ else if in $lookup "github" }}
+                      {{ $iconType = "github" }}
+                    {{ else if in $lookup "researchgate" }}
+                      {{ $iconType = "researchgate" }}
+                    {{ else if in $lookup "orcid" }}
+                      {{ $iconType = "orcid" }}
+                    {{ end }}
                     {{ with $url }}
-                      <a href="{{ . }}" aria-label="{{ $linkName }}"{{ if not (hasPrefix . "mailto:") }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ $linkName }}</a>
+                      <a class="zw-home-profile__social-link" href="{{ . }}" aria-label="{{ $linkName }}" title="{{ $linkName }}"{{ if not (hasPrefix . "mailto:") }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                        <span class="zw-home-profile__social-icon" aria-hidden="true">
+                          {{ if eq $iconType "email" }}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.25" y="5.25" width="17.5" height="13.5" rx="2.4"></rect><path d="m4.6 7 7.4 5.4L19.4 7"></path></svg>
+                          {{ else if eq $iconType "github" }}
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.35a9.82 9.82 0 0 0-3.1 19.14c.49.09.67-.21.67-.47v-1.84c-2.72.59-3.3-1.16-3.3-1.16-.44-1.13-1.09-1.43-1.09-1.43-.89-.61.07-.6.07-.6.98.07 1.5 1.01 1.5 1.01.88 1.5 2.3 1.07 2.86.82.09-.64.34-1.07.62-1.32-2.17-.25-4.45-1.08-4.45-4.83 0-1.07.38-1.94 1.01-2.62-.1-.25-.44-1.24.1-2.58 0 0 .82-.26 2.7 1a9.34 9.34 0 0 1 4.91 0c1.87-1.27 2.69-1 2.69-1 .54 1.34.2 2.33.1 2.58.63.68 1.01 1.55 1.01 2.62 0 3.76-2.29 4.58-4.47 4.82.35.3.66.89.66 1.8v2.67c0 .26.18.56.68.47A9.82 9.82 0 0 0 12 2.35Z"></path></svg>
+                          {{ else if eq $iconType "researchgate" }}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45"><circle cx="12" cy="12" r="9.25"></circle><text x="12" y="15" text-anchor="middle" fill="currentColor" stroke="none" font-size="8" font-weight="700" font-family="system-ui, sans-serif">RG</text></svg>
+                          {{ else if eq $iconType "orcid" }}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45"><circle cx="12" cy="12" r="9.25"></circle><text x="12" y="15" text-anchor="middle" fill="currentColor" stroke="none" font-size="8.4" font-weight="700" font-family="system-ui, sans-serif">iD</text></svg>
+                          {{ else }}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.1 13.9a4 4 0 0 0 5.66 0l2.15-2.15a4 4 0 0 0-5.66-5.66L11 7.34"></path><path d="M13.9 10.1a4 4 0 0 0-5.66 0l-2.15 2.15a4 4 0 0 0 5.66 5.66L13 16.66"></path></svg>
+                          {{ end }}
+                        </span>
+                        <span class="zw-home-profile__sr-only">{{ $linkName }}</span>
+                      </a>
                     {{ end }}
                   {{ end }}
                 {{ end }}
