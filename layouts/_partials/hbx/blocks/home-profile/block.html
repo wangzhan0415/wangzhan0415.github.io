@@ -1,130 +1,5 @@
-{{/* Local Hugo Blox block: homepage profile sourced exclusively from author data. */}}
+{{/* Local Hugo Blox block: concise homepage profile sourced from author data. */}}
 {{ partial "hbx/blocks/home-profile/styles.html" . }}
-<style>
-  .zw-home-profile .zw-home-profile__links {
-    gap: .78rem;
-    margin-top: 1.25rem;
-  }
-
-  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link {
-    position: relative;
-    width: 58px;
-    height: 58px;
-    min-height: 58px;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid rgba(76, 112, 160, .22);
-    border-radius: 50%;
-    background: linear-gradient(145deg, rgba(255,255,255,.9), rgba(239,246,255,.72));
-    color: #334e6f;
-    box-shadow: 0 8px 24px rgba(30,64,110,.08), inset 0 1px 0 rgba(255,255,255,.72);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, color .16s ease, background .16s ease;
-  }
-
-  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link::before {
-    position: absolute;
-    inset: 5px;
-    border: 1px solid rgba(59,130,246,.08);
-    border-radius: 50%;
-    content: "";
-    pointer-events: none;
-  }
-
-  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link::after {
-    position: absolute;
-    top: 5px;
-    right: 11px;
-    left: 11px;
-    height: 14px;
-    border-radius: 50%;
-    background: linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,0));
-    content: "";
-    pointer-events: none;
-  }
-
-  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link:hover {
-    transform: translateY(-3px);
-    border-color: rgba(59,130,246,.38);
-    background: linear-gradient(145deg, rgba(247,251,255,.98), rgba(226,239,255,.92));
-    color: #1d4ed8;
-    box-shadow: 0 12px 30px rgba(50,110,180,.16), 0 0 0 1px rgba(79,140,220,.08), 0 0 22px rgba(78,139,211,.09);
-  }
-
-  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link:active {
-    transform: translateY(-1px) scale(.98);
-  }
-
-  .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link:focus-visible {
-    outline: 3px solid rgba(37,99,235,.3);
-    outline-offset: 4px;
-  }
-
-  .zw-home-profile .zw-home-profile__social-icon {
-    position: relative;
-    z-index: 1;
-    display: inline-flex;
-    width: 23px;
-    height: 23px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .zw-home-profile .zw-home-profile__social-icon svg {
-    display: block;
-    width: 23px;
-    height: 23px;
-  }
-
-  .zw-home-profile .zw-home-profile__sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  .dark .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link {
-    border-color: rgba(130,175,225,.2);
-    background: linear-gradient(145deg, rgba(25,38,56,.94), rgba(16,28,44,.82));
-    color: #c9dcf2;
-    box-shadow: 0 9px 24px rgba(0,0,0,.2), inset 0 1px 0 rgba(148,163,184,.08);
-  }
-
-  .dark .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link::before {
-    border-color: rgba(125,211,252,.1);
-  }
-
-  .dark .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link::after {
-    background: linear-gradient(180deg, rgba(186,230,253,.11), rgba(186,230,253,0));
-  }
-
-  .dark .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link:hover {
-    border-color: rgba(125,211,252,.46);
-    background: linear-gradient(145deg, rgba(30,48,70,.97), rgba(20,38,58,.9));
-    color: #7dd3fc;
-    box-shadow: 0 12px 30px rgba(0,0,0,.28), 0 0 24px rgba(56,189,248,.1);
-  }
-
-  @media (max-width: 600px) {
-    .zw-home-profile .zw-home-profile__links .zw-home-profile__social-link {
-      width: 52px;
-      height: 52px;
-      min-height: 52px;
-    }
-
-    .zw-home-profile .zw-home-profile__social-icon,
-    .zw-home-profile .zw-home-profile__social-icon svg {
-      width: 21px;
-      height: 21px;
-    }
-  }
-</style>
 {{ $block := .wcBlock }}
 {{ $content := $block.content }}
 {{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
@@ -136,13 +11,14 @@
   {{ $homepage := $profile.homepage | default dict }}
   {{ $displayName := index $name "display" | default (index $name "alternate") }}
   {{ $avatar := resources.Get (printf "media/authors/%s.png" $username) }}
+  {{ $previewCount := index $homepage "preview_count" | default 4 }}
 
   <section class="zw-home-profile">
     <div class="zw-home-profile__layout">
       <aside class="zw-home-profile__sidebar" aria-label="Profile summary">
         <div class="zw-home-profile__identity-card">
           {{ with $avatar }}
-            <img class="zw-home-profile__avatar" src="{{ .RelPermalink }}" width="184" height="184" alt="{{ $displayName }}">
+            <img class="zw-home-profile__avatar" src="{{ .RelPermalink }}" width="160" height="160" alt="{{ $displayName }}">
           {{ end }}
 
           <div class="zw-home-profile__identity">
@@ -189,15 +65,15 @@
                       <a class="zw-home-profile__social-link" href="{{ . }}" aria-label="{{ $linkName }}" title="{{ $linkName }}"{{ if not (hasPrefix . "mailto:") }} target="_blank" rel="noopener noreferrer"{{ end }}>
                         <span class="zw-home-profile__social-icon" aria-hidden="true">
                           {{ if eq $iconType "email" }}
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.25" y="5.25" width="17.5" height="13.5" rx="2.4"></rect><path d="m4.6 7 7.4 5.4L19.4 7"></path></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v11H4z"></path><path d="m4.8 7.4 7.2 5.2 7.2-5.2"></path></svg>
                           {{ else if eq $iconType "github" }}
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.35a9.82 9.82 0 0 0-3.1 19.14c.49.09.67-.21.67-.47v-1.84c-2.72.59-3.3-1.16-3.3-1.16-.44-1.13-1.09-1.43-1.09-1.43-.89-.61.07-.6.07-.6.98.07 1.5 1.01 1.5 1.01.88 1.5 2.3 1.07 2.86.82.09-.64.34-1.07.62-1.32-2.17-.25-4.45-1.08-4.45-4.83 0-1.07.38-1.94 1.01-2.62-.1-.25-.44-1.24.1-2.58 0 0 .82-.26 2.7 1a9.34 9.34 0 0 1 4.91 0c1.87-1.27 2.69-1 2.69-1 .54 1.34.2 2.33.1 2.58.63.68 1.01 1.55 1.01 2.62 0 3.76-2.29 4.58-4.47 4.82.35.3.66.89.66 1.8v2.67c0 .26.18.56.68.47A9.82 9.82 0 0 0 12 2.35Z"></path></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6a9.5 9.5 0 0 0-3 18.5c.47.09.64-.2.64-.45v-1.78c-2.63.57-3.18-1.12-3.18-1.12-.43-1.09-1.05-1.38-1.05-1.38-.86-.59.07-.58.07-.58.95.07 1.45.98 1.45.98.85 1.45 2.22 1.03 2.76.79.09-.61.33-1.04.6-1.28-2.1-.24-4.3-1.05-4.3-4.67 0-1.03.37-1.87.98-2.53-.1-.24-.43-1.2.09-2.49 0 0 .8-.25 2.61.97a9.03 9.03 0 0 1 4.75 0c1.8-1.22 2.6-.97 2.6-.97.52 1.29.19 2.25.09 2.49.61.66.98 1.5.98 2.53 0 3.63-2.21 4.43-4.31 4.66.34.29.64.86.64 1.74v2.58c0 .25.17.54.65.45A9.5 9.5 0 0 0 12 2.6Z"></path></svg>
                           {{ else if eq $iconType "researchgate" }}
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45"><circle cx="12" cy="12" r="9.25"></circle><text x="12" y="15" text-anchor="middle" fill="currentColor" stroke="none" font-size="8" font-weight="700" font-family="system-ui, sans-serif">RG</text></svg>
+                            <span class="zw-home-profile__brand-glyph">RG</span>
                           {{ else if eq $iconType "orcid" }}
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45"><circle cx="12" cy="12" r="9.25"></circle><text x="12" y="15" text-anchor="middle" fill="currentColor" stroke="none" font-size="8.4" font-weight="700" font-family="system-ui, sans-serif">iD</text></svg>
+                            <span class="zw-home-profile__brand-glyph zw-home-profile__brand-glyph--orcid">iD</span>
                           {{ else }}
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.1 13.9a4 4 0 0 0 5.66 0l2.15-2.15a4 4 0 0 0-5.66-5.66L11 7.34"></path><path d="M13.9 10.1a4 4 0 0 0-5.66 0l-2.15 2.15a4 4 0 0 0 5.66 5.66L13 16.66"></path></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l2.1-2.1a4 4 0 0 0-5.7-5.7L11 7.3"></path><path d="M14 10a4 4 0 0 0-5.7 0l-2.1 2.1a4 4 0 0 0 5.7 5.7L13 16.7"></path></svg>
                           {{ end }}
                         </span>
                         <span class="zw-home-profile__sr-only">{{ $linkName }}</span>
@@ -214,93 +90,157 @@
       <main class="zw-home-profile__main">
         <section id="about" class="zw-home-profile__section zw-home-profile__section--about">
           <header class="zw-home-profile__section-heading">
-            <span class="zw-home-profile__section-mark" aria-hidden="true"></span>
             <div>
               {{ with index $homepage "about_subtitle" }}<p>{{ . }}</p>{{ end }}
               {{ with index $homepage "about_title" }}<h2>{{ . }}</h2>{{ end }}
             </div>
           </header>
           {{ with $profile.bio }}<div class="zw-home-profile__bio">{{ . | markdownify }}</div>{{ end }}
-        </section>
 
-        <section id="research" class="zw-home-profile__section">
-          <header class="zw-home-profile__section-heading">
-            <span class="zw-home-profile__section-mark" aria-hidden="true"></span>
-            <div>
-              {{ with index $homepage "research_subtitle" }}<p>{{ . }}</p>{{ end }}
-              {{ with index $homepage "research_title" }}<h2>{{ . }}</h2>{{ end }}
+          {{ with $profile.research_areas }}
+            <div class="zw-home-profile__research-inline" id="research">
+              <div class="zw-home-profile__subheading">
+                <span>{{ index $homepage "research_subtitle" | default "Research Areas" }}</span>
+                <h3>{{ index $homepage "research_title" | default "研究方向" }}</h3>
+              </div>
+              <div class="zw-home-profile__research-list">
+                {{ range . }}
+                  {{ if reflect.IsMap . }}
+                    {{ $areaTitle := index . "title" }}
+                    {{ $areaDetail := index . "detail" }}
+                    <details class="zw-home-profile__research-item">
+                      <summary>{{ $areaTitle }}</summary>
+                      <div class="zw-home-profile__research-detail">
+                        {{ if $areaDetail }}{{ $areaDetail | markdownify }}{{ else }}<p>具体研究内容后续补充。</p>{{ end }}
+                      </div>
+                    </details>
+                  {{ end }}
+                {{ end }}
+              </div>
             </div>
-          </header>
-          {{ with $profile.interests }}
-            <ul class="zw-home-profile__interests">
-              {{ range . }}<li class="zw-home-profile__interest">{{ . }}</li>{{ end }}
-            </ul>
           {{ end }}
         </section>
 
-        <section id="appointments" class="zw-home-profile__section zw-home-profile__appointments">
+        <section id="appointments" class="zw-home-profile__section zw-home-profile__section--compact">
           <header class="zw-home-profile__section-heading">
-            <span class="zw-home-profile__section-mark" aria-hidden="true"></span>
             <div>
               {{ with index $homepage "appointments_subtitle" }}<p>{{ . }}</p>{{ end }}
               {{ with index $homepage "appointments_title" }}<h2>{{ . }}</h2>{{ end }}
             </div>
           </header>
           {{ with $profile.appointments }}
-            <div class="zw-home-profile__records zw-home-profile__records--appointments">
-              {{ range . }}
+            <ul class="zw-home-profile__compact-list">
+              {{ range first $previewCount . }}
                 {{ if reflect.IsMap . }}
-                  {{ $appointment := . }}
-                  <article class="zw-home-profile__record zw-home-profile__record--appointment">
-                    <div class="zw-home-profile__record-topline">
-                      {{ with index . "role" }}<h3>{{ . }}</h3>{{ end }}
-                      {{ with index . "start" }}<span class="zw-home-profile__record-date">{{ . }} – {{ index $appointment "end" | default "至今" }}</span>{{ end }}
-                    </div>
-                    {{ with index . "org" }}<p class="zw-home-profile__record-meta">{{ . }}</p>{{ end }}
-                    {{ with index . "summary" }}<div class="zw-home-profile__record-summary">{{ . | markdownify }}</div>{{ end }}
-                  </article>
-                {{ else }}
-                  <article class="zw-home-profile__record"><p>{{ . }}</p></article>
+                  <li>
+                    <strong>{{ index . "role" }}</strong>
+                    {{ with index . "org" }}<span>{{ . }}</span>{{ end }}
+                  </li>
                 {{ end }}
               {{ end }}
-            </div>
+            </ul>
+            {{ if gt (len .) $previewCount }}
+              <details class="zw-home-profile__more">
+                <summary>显示全部兼职信息</summary>
+                <ul class="zw-home-profile__compact-list zw-home-profile__compact-list--expanded">
+                  {{ range . }}
+                    {{ if reflect.IsMap . }}
+                      <li>
+                        <strong>{{ index . "role" }}</strong>
+                        {{ with index . "org" }}<span>{{ . }}</span>{{ end }}
+                      </li>
+                    {{ end }}
+                  {{ end }}
+                </ul>
+              </details>
+            {{ end }}
           {{ end }}
         </section>
 
-        <section id="awards" class="zw-home-profile__section zw-home-profile__awards">
-          <header class="zw-home-profile__section-heading">
-            <span class="zw-home-profile__section-mark" aria-hidden="true"></span>
-            <div>
-              {{ with index $homepage "awards_subtitle" }}<p>{{ . }}</p>{{ end }}
-              {{ with index $homepage "awards_title" }}<h2>{{ . }}</h2>{{ end }}
-            </div>
-          </header>
-          {{ with $profile.awards }}
-            <div class="zw-home-profile__records zw-home-profile__records--awards">
-              {{ range . }}
-                <article class="zw-home-profile__record zw-home-profile__record--award">
-                  {{ if reflect.IsMap . }}
-                    {{ $organization := index . "awarder" | default (index . "organization") }}
-                    {{ $grade := index . "grade" }}
-                    <div class="zw-home-profile__record-topline">
-                      {{ with index . "title" }}<h3>{{ . }}</h3>{{ end }}
-                      {{ with index . "date" }}<span class="zw-home-profile__record-date">{{ . }}</span>{{ end }}
-                    </div>
-                    {{ if or $organization $grade }}
-                      <p class="zw-home-profile__record-meta">
-                        {{ with $organization }}{{ . }}{{ end }}{{ if and $organization $grade }} · {{ end }}{{ with $grade }}{{ . }}{{ end }}
-                      </p>
+        <section id="recognition" class="zw-home-profile__section zw-home-profile__section--recognition">
+          <div class="zw-home-profile__recognition-grid">
+            <article class="zw-home-profile__recognition-column">
+              <header class="zw-home-profile__mini-heading">
+                <p>{{ index $homepage "awards_subtitle" | default "Awards" }}</p>
+                <h2>{{ index $homepage "awards_title" | default "奖项" }}</h2>
+              </header>
+              {{ with $profile.awards }}
+                <ul class="zw-home-profile__recognition-preview">
+                  {{ range first $previewCount . }}
+                    {{ if reflect.IsMap . }}
+                      {{ $date := printf "%s" (index . "date") }}
+                      {{ $year := replaceRE "^([0-9]{4}).*$" "$1" $date }}
+                      <li>
+                        <span class="zw-home-profile__year">{{ $year }}</span>
+                        <span class="zw-home-profile__recognition-name">{{ index . "title" }}{{ with index . "grade" }} · {{ . }}{{ end }}</span>
+                      </li>
                     {{ end }}
-                    {{ with index . "project" }}<p class="zw-home-profile__record-project">{{ . }}</p>{{ end }}
-                    {{ with index . "rank" }}<p class="zw-home-profile__record-rank">排名 {{ . }}</p>{{ end }}
-                    {{ with index . "summary" }}<div class="zw-home-profile__record-summary">{{ . | markdownify }}</div>{{ end }}
-                  {{ else }}
-                    <p>{{ . }}</p>
                   {{ end }}
-                </article>
+                </ul>
+                <details class="zw-home-profile__more">
+                  <summary>显示更多奖项信息</summary>
+                  <div class="zw-home-profile__expanded-records">
+                    {{ range . }}
+                      {{ if reflect.IsMap . }}
+                        <article class="zw-home-profile__expanded-record">
+                          <div class="zw-home-profile__expanded-title">
+                            <strong>{{ index . "title" }}</strong>
+                            {{ with index . "grade" }}<span>{{ . }}</span>{{ end }}
+                          </div>
+                          <p class="zw-home-profile__expanded-meta">
+                            {{ with index . "date" }}{{ . }}{{ end }}
+                            {{ with index . "organization" }} · {{ . }}{{ end }}
+                          </p>
+                          {{ with index . "project" }}<p>{{ . }}</p>{{ end }}
+                          {{ with index . "rank" }}<p class="zw-home-profile__expanded-meta">排名 {{ . }}</p>{{ end }}
+                        </article>
+                      {{ end }}
+                    {{ end }}
+                  </div>
+                </details>
               {{ end }}
-            </div>
-          {{ end }}
+            </article>
+
+            <article class="zw-home-profile__recognition-column">
+              <header class="zw-home-profile__mini-heading">
+                <p>{{ index $homepage "honors_subtitle" | default "Honors" }}</p>
+                <h2>{{ index $homepage "honors_title" | default "荣誉" }}</h2>
+              </header>
+              {{ with $profile.honors }}
+                <ul class="zw-home-profile__recognition-preview">
+                  {{ range first $previewCount . }}
+                    {{ if reflect.IsMap . }}
+                      {{ $date := printf "%s" (index . "date") }}
+                      {{ $year := replaceRE "^([0-9]{4}).*$" "$1" $date }}
+                      <li>
+                        <span class="zw-home-profile__year">{{ $year }}</span>
+                        <span class="zw-home-profile__recognition-name">{{ index . "title" }}{{ with index . "level" }} · {{ . }}{{ end }}</span>
+                      </li>
+                    {{ end }}
+                  {{ end }}
+                </ul>
+                <details class="zw-home-profile__more">
+                  <summary>显示更多荣誉信息</summary>
+                  <div class="zw-home-profile__expanded-records">
+                    {{ range . }}
+                      {{ if reflect.IsMap . }}
+                        <article class="zw-home-profile__expanded-record">
+                          <div class="zw-home-profile__expanded-title">
+                            <strong>{{ index . "title" }}</strong>
+                            {{ with index . "level" }}<span>{{ . }}</span>{{ end }}
+                          </div>
+                          <p class="zw-home-profile__expanded-meta">
+                            {{ with index . "date" }}{{ . }}{{ end }}
+                            {{ with index . "organization" }} · {{ . }}{{ end }}
+                          </p>
+                        </article>
+                      {{ end }}
+                    {{ end }}
+                  </div>
+                </details>
+              {{ end }}
+            </article>
+          </div>
         </section>
       </main>
     </div>
