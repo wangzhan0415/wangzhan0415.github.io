@@ -1,5 +1,21 @@
 {{/* Local Hugo Blox block: concise homepage profile sourced from author data. */}}
 {{ partial "hbx/blocks/home-profile/styles.html" . }}
+<style>
+  .zw-home-profile .zw-home-profile__social-link {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .zw-home-profile .zw-home-profile__social-icon,
+  .zw-home-profile .zw-home-profile__social-icon svg {
+    width: 1.55rem;
+    height: 1.55rem;
+  }
+
+  .zw-home-profile .zw-home-profile__social-icon--brand svg path {
+    fill: currentColor;
+  }
+</style>
 {{ $block := .wcBlock }}
 {{ $content := $block.content }}
 {{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
@@ -51,27 +67,26 @@
                     {{ $linkName := index . "label" | default (index . "name") }}
                     {{ $urlString := printf "%s" $url }}
                     {{ $lookup := lower (printf "%s %s" $linkName $urlString) }}
-                    {{ $iconType := "link" }}
+                    {{ $iconName := "hero/link" }}
+                    {{ $isBrandIcon := false }}
                     {{ if or (hasPrefix (lower $urlString) "mailto:") (in $lookup "email") (in $lookup "mail") }}
-                      {{ $iconType = "email" }}
+                      {{ $iconName = "hero/envelope" }}
                     {{ else if in $lookup "github" }}
-                      {{ $iconType = "github" }}
+                      {{ $iconName = "brands/github" }}
+                      {{ $isBrandIcon = true }}
                     {{ else if in $lookup "researchgate" }}
-                      {{ $iconType = "researchgate" }}
+                      {{ $iconName = "brands/researchgate" }}
+                      {{ $isBrandIcon = true }}
                     {{ else if in $lookup "orcid" }}
-                      {{ $iconType = "orcid" }}
+                      {{ $iconName = "academicons/orcid" }}
+                      {{ $isBrandIcon = true }}
                     {{ end }}
+                    {{ $iconAsset := resources.Get (printf "media/icons/%s.svg" $iconName) }}
                     {{ with $url }}
                       <a class="zw-home-profile__social-link" href="{{ . }}" aria-label="{{ $linkName }}" title="{{ $linkName }}"{{ if not (hasPrefix . "mailto:") }} target="_blank" rel="noopener noreferrer"{{ end }}>
-                        <span class="zw-home-profile__social-icon" aria-hidden="true">
-                          {{ if eq $iconType "email" }}
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v11H4z"></path><path d="m4.8 7.4 7.2 5.2 7.2-5.2"></path></svg>
-                          {{ else if eq $iconType "github" }}
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.6a9.5 9.5 0 0 0-3 18.5c.47.09.64-.2.64-.45v-1.78c-2.63.57-3.18-1.12-3.18-1.12-.43-1.09-1.05-1.38-1.05-1.38-.86-.59.07-.58.07-.58.95.07 1.45.98 1.45.98.85 1.45 2.22 1.03 2.76.79.09-.61.33-1.04.6-1.28-2.1-.24-4.3-1.05-4.3-4.67 0-1.03.37-1.87.98-2.53-.1-.24-.43-1.2.09-2.49 0 0 .8-.25 2.61.97a9.03 9.03 0 0 1 4.75 0c1.8-1.22 2.6-.97 2.6-.97.52 1.29.19 2.25.09 2.49.61.66.98 1.5.98 2.53 0 3.63-2.21 4.43-4.31 4.66.34.29.64.86.64 1.74v2.58c0 .25.17.54.65.45A9.5 9.5 0 0 0 12 2.6Z"></path></svg>
-                          {{ else if eq $iconType "researchgate" }}
-                            <span class="zw-home-profile__brand-glyph">RG</span>
-                          {{ else if eq $iconType "orcid" }}
-                            <span class="zw-home-profile__brand-glyph zw-home-profile__brand-glyph--orcid">iD</span>
+                        <span class="zw-home-profile__social-icon{{ if $isBrandIcon }} zw-home-profile__social-icon--brand{{ end }}" aria-hidden="true">
+                          {{ with $iconAsset }}
+                            {{ .Content | safeHTML }}
                           {{ else }}
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l2.1-2.1a4 4 0 0 0-5.7-5.7L11 7.3"></path><path d="M14 10a4 4 0 0 0-5.7 0l-2.1 2.1a4 4 0 0 0 5.7 5.7L13 16.7"></path></svg>
                           {{ end }}
