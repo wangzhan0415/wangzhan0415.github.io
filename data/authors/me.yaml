@@ -69,27 +69,22 @@ experience:
     org: 浙江浙能数字科技有限公司
     start: 2025-11-01
     end: ''
-    summary: 新一代信息技术技术开发
-  - role: 副院长
-    org: 浙江省浙能工业信息工程省级重点企业研究院
-    start: 2025-08-01
-    end: ''
-    summary: 负责工业信息化与能源数智化方向科研规划、项目管理、技术攻关及成果转化推进。
+    summary: 能源领域特种机器人技术研究与产业化应用
   - role: 总监、团队负责人
     org: 浙江浙能数字科技有限公司
     start: 2022-01-01
     end: 2025-10-31
-    summary: 新一代信息技术技术开发及团队工作
+    summary: 人工智能与机器人技术研发及团队管理建设
   - role: 科研团队负责人
     org: 浙江浙能技术研究院有限公司
     start: 2020-05-13
     end: 2021-12-31
-    summary: 新一代信息技术技术开发及科研团队工作
+    summary: ''
   - role: 博士后研究员
     org: 巴黎高等电子学院
     start: 2018-12-09
     end: 2020-03-09
-    summary: 新一代信息技术技术开发
+    summary: ''
 skills: []
 languages: []
 awards:
@@ -150,7 +145,7 @@ awards:
     grade: 三等奖
     project: 火电厂封闭煤棚自巡追踪降温应急系统
     rank: '3/10'
-  - title: 全国青年职业技能大赛--“中核杯”创新创新竞赛
+  - title: “振兴杯”全国青年职业技能大赛
     date: '2022-11-01'
     grade: 铜奖
     project: 发电厂智能巡检机器人优化创新设计
@@ -160,36 +155,35 @@ awards:
     grade: 二等奖
     project: 基于机器人技术的煤质工业分析智能化研究与应用
     rank: '3/12'
-  - title: 优秀论文奖
-    date: '2021-05-10'
-    grade: 二等奖
-    project: 面向焊接过程的智能焊接监测系统的设计与实现
-    rank: '9/9'
 honors:
-  - title: 年度卓越工程师
-    organization: 恰佩克奖委员会
-    date: '2024-05'
-    level: 其他
+  - title: 浙江省领军人才
+    organization: 中共杭州市委人才办/杭州市人力资源与社会保障局
+    date: '2023-03'
+    level: 地市级
+  - title: “西湖明珠工程“海外高层次人才
+    organization: 杭州市人力资源与社会保障局
+    date: '2022-12'
+    level: 地市级
   - title: 省部属企事业“数字工匠”
     organization: 浙江省省属企事业工会
     date: '2023-11'
     level: 省部级
-  - title: 杭州市高层次人才 C 类
-    organization: 中共杭州市委人才办/杭州市人力资源与社会保障局
-    date: '2023-03'
-    level: 地市级
-  - title: 杭州市“西湖明珠工程“海外高层次人才
-    organization: 杭州市人力资源与社会保障局
-    date: '2022-12'
-    level: 地市级
+  - title: 浙能集团卓越工程师
+    organization: 浙江省能源集团
+    date: '2026-05'
+    level: 其他
+  - title: 浙能工匠
+    organization: 浙江省能源集团
+    date: '2026-04'
+    level: 其他
+  - title: “恰佩克”年度卓越工程师
+    organization: 恰佩克奖委员会
+    date: '2024-05'
+    level: 其他
   - title: 先进工作者
     organization: 浙江浙能数字科技有限公司
     date: '2026-02'
     level: 区县级
-  - title: 工会积极分子
-    organization: 浙江浙能数字科技有限公司工会委员会
-    date: '2026-02'
-    level: 其他
   - title: 先进工作者
     organization: 浙江浙能数字科技有限公司
     date: '2025-03'
@@ -198,6 +192,10 @@ honors:
     organization: 浙江浙能数字科技有限公司
     date: '2023-03'
     level: 区县级
+  - title: 工会积极分子
+    organization: 浙江浙能数字科技有限公司工会委员会
+    date: '2026-02'
+    level: 其他
 appointments:
   - role: 副院长
     org: 浙江省浙能工业信息工程省级重点企业研究院
