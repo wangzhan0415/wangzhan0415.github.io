@@ -99,13 +99,13 @@ awards:
     grade: 二等奖
     project: 面向智能运维的异构无人系统感知与优化调度技术
     rank: '3/15'
-  - title: 科技进步奖
+  - title: 中国安全科学技术进步奖
     organization: 中国安全生产协会
     date: '2025-12-19'
     grade: 一等奖
     project: 高危燃爆场景智能安全防控与应急处置技术装备研发应用
     rank: '5/15'
-  - title: 科技创新奖
+  - title: 中国科技产业化促进会科技创新奖
     organization: 中国科技产业化促进会
     date: '2025-10-01'
     grade: 一等奖
@@ -117,13 +117,13 @@ awards:
     grade: 一等奖
     project: 面向运维决策的多维风机出力预测与渗漏油视觉检测方法研究
     rank: '5/5'
-  - title: 科技进步奖
+  - title: 中国腐蚀控制技术协会科技进步奖
     organization: 中国腐蚀控制技术协会
     date: '2025-06-01'
     grade: 二等奖
     project: 化工厂取水口异物安全监测关键技术及应急设备研发
     rank: '8/8'
-  - title: 科学技术奖
+  - title: 浙江省应急与安全科学技术奖
     organization: 浙江省应急与安全科学技术学会
     date: '2024-12-01'
     grade: 二等奖
@@ -134,7 +134,7 @@ awards:
     grade: 二等奖
     project: 基于多源融合的地空一体全域智能巡视系统研究与设计
     rank: '2/5'
-  - title: 科技创新奖
+  - title: 中国科技产业化促进会科技创新奖
     organization: 中国科技产业化促进会
     date: '2024-10-01'
     grade: 一等奖
