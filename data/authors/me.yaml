@@ -197,11 +197,21 @@ honors:
     date: '2026-02'
     level: 其他
 appointments:
+  - role: 浙江省人工智能学院博士生联合导师
+    org: 浙江省人工智能学院
+    start: '2026-09'
+    end: ''
+    summary: ''
+  - role: 浙江大学、西北工业大学研究生企业导师
+    org: 浙江大学，西北工业大学
+    start: '2025-08'
+    end: ''
+    summary: ''
   - role: 副院长
     org: 浙江省浙能工业信息工程省级重点企业研究院
     start: '2025-08'
     end: ''
-    summary: 负责工业信息化与能源数智化方向科研规划、项目管理、技术攻关及成果转化推进。
+    summary: ''
   - role: 专家库专家
     org: 杭州市科学技术局
     start: '2025-05'
